@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虎牙视频人工审核 - 数据日报</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f0f2f5;
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        /* 顶部Header */
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            padding: 20px 40px;
+            color: white;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .header-left .subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* 核心指标区域 */
+        .metrics-section {
+            padding: 20px 40px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 4px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .metric-card.blue { border-left-color: #2563eb; }
+        .metric-card.green { border-left-color: #10b981; }
+        .metric-card.purple { border-left-color: #8b5cf6; }
+        .metric-card.orange { border-left-color: #f59e0b; }
+        .metric-card.red { border-left-color: #ef4444; }
+
+        .metric-card .label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .metric-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .metric-card .trend {
+            font-size: 12px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .metric-card .trend.up {
+            color: #10b981;
+        }
+
+        .metric-card .trend.down {
+            color: #ef4444;
+        }
+
+        .metric-card .value.blue { color: #2563eb; }
+        .metric-card .value.green { color: #10b981; }
+        .metric-card .value.purple { color: #8b5cf6; }
+        .metric-card .value.orange { color: #f59e0b; }
+        .metric-card .value.red { color: #ef4444; }
+
+        .metric-card .unit {
+            font-size: 12px;
+            color: #6b7280;
+            margin-left: 4px;
+        }
+
+        /* 图表区域 */
+        .charts-section {
+            padding: 0 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* 底部图表区域 */
+        .bottom-section {
+            padding: 0 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 友商对比区域 */
+        .comparison-section {
+            padding: 0 40px 20px;
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .comparison-header::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: #f59e0b;
+            border-radius: 2px;
+        }
+
+        .comparison-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            .bottom-section {
+                grid-template-columns: 1fr;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header-content {
+                flex-direction: column;
+            }
+            .header-right {
+                text-align: left;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <h1>🎮 虎牙视频人工审核 - 数据日报</h1>
+                <div class="subtitle">Huya Video Review Daily Report</div>
+            </div>
+            <div class="header-right">
+                <div>数据周期: 2026-06-01 至 2026-07-01</div>
+                <div>报告生成: 2026-07-02 13:40:00</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心指标 -->
+    <div class="metrics-section">
+        <div class="section-title">易盾BPO 核心效能监控</div>
+        <div class="metrics-grid">
+            <div class="metric-card blue">
+                <div class="label">累计实际审核量</div>
+                <div class="value blue">70,741 <span class="unit">条</span></div>
+                <div class="trend up">
+                    <span>↑</span> 较昨日 +2,196 条
+                </div>
+            </div>
+            <div class="metric-card green">
+                <div class="label">累计转化后审核量</div>
+                <div class="value green">61,270 <span class="unit">条</span></div>
+                <div class="trend up">
+                    <span>↑</span> 较昨日 +1,935 条
+                </div>
+            </div>
+            <div class="metric-card purple">
+                <div class="label">日均人效（转化后）</div>
+                <div class="value purple">152 <span class="unit">条/人</span></div>
+                <div class="trend down">
+                    <span>↓</span> 较昨日 -1 条/人
+                </div>
+            </div>
+            <div class="metric-card orange">
+                <div class="label">平均违规率</div>
+                <div class="value orange">12.1 <span class="unit">%</span></div>
+                <div class="trend down">
+                    <span>↓</span> 较昨日 -0.8%
+                </div>
+            </div>
+            <div class="metric-card red">
+                <div class="label">平均排队时长</div>
+                <div class="value red">1.69 <span class="unit">分钟</span></div>
+                <div class="trend down">
+                    <span>↓</span> 较昨日 -0.03 分钟
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 图表区域 -->
+    <div class="charts-section">
+        <div class="chart-card">
+            <h3>每日产能与排队趋势（双轴线面积图）</h3>
+            <div class="chart-wrapper">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>人员转化产能排行 Top 12</h3>
+            <div class="chart-wrapper">
+                <canvas id="personRankChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部图表 -->
+    <div class="bottom-section">
+        <div class="chart-card">
+            <h3>24小时时段工作量分布（热力峰值）</h3>
+            <div class="chart-wrapper">
+                <canvas id="hourlyChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>审核通道分布（白名单应用占比）</h3>
+            <div class="chart-wrapper">
+                <canvas id="channelChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- 友商对比 -->
+    <div class="comparison-section">
+        <div class="comparison-header">
+            <h2>友商运营对比（易盾 vs 证通）</h2>
+        </div>
+        <div class="comparison-grid">
+            <div class="chart-card">
+                <h3>每日审核量级对比（条）</h3>
+                <div class="chart-wrapper">
+                    <canvas id="volumeComparisonChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>平均排队时长对比（分钟）</h3>
+                <div class="chart-wrapper">
+                    <canvas id="queueComparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 数据
+        const dates = ['6.1','6.2','6.3','6.4','6.5','6.6','6.7','6.8','6.9','6.10','6.11','6.12','6.13','6.14','6.15','6.16','6.17','6.18','6.19','6.20','6.21','6.22','6.23','6.24','6.25','6.26','6.27','6.28','6.29','6.30','7.1'];
+        
+        // 6月模拟数据 + 7.1真实数据
+        const auditVolumes = [3947, 5385, 2292, 2716, 1690, 1467, 1987, 2419, 2450, 3947, 2391, 2634, 2538, 2616, 2931, 3332, 2544, 2496, 2516, 3294, 2099, 2196, 2375, 2631, 3147, 2717, 2070, 2327, 2667, 2963, 2196];
+        const transformedVolumes = [3200, 4500, 1850, 2200, 1350, 1150, 1550, 1900, 1950, 3200, 1900, 2100, 2000, 2050, 2300, 2650, 2000, 1980, 2000, 2650, 1700, 1750, 1900, 2100, 2500, 2150, 1650, 1850, 2150, 2471, 1935];
+        const queueTimes = [1.2, 1.5, 1.8, 2.1, 1.9, 1.6, 1.4, 1.3, 1.5, 1.7, 1.8, 1.6, 1.4, 1.3, 1.2, 1.1, 1.3, 1.5, 1.6, 1.4, 1.7, 1.8, 1.5, 1.3, 1.2, 1.4, 1.6, 1.5, 1.3, 4.08, 1.36];
+        
+        // 人员排行数据（7.1日易盾BPO）
+        const personNames = ['邵嘉飞', '曾坚城', '吴桂耀', '昝瑜凡', '罗丹', '江宜瑾', '罗志洋', '李明朗', '李国栋', '黄金宝', '王鸣', '罗锦鸿'];
+        const personValues = [275, 245, 201, 166, 151, 148, 142, 116, 119, 119, 110, 94];
+        
+        // 24小时数据
+        const hourlyData = [2800, 2600, 2400, 2200, 1800, 1600, 1400, 1200, 1800, 2900, 3200, 3500, 5200, 3300, 3100, 4200, 4700, 3600, 3300, 2800, 2400, 2200, 2600, 2800, 2900, 2800, 2700, 2600, 2500, 2600, 1800];
+        
+        // 通道占比（含7.1累计）
+        const channelData = [40700, 435, 56, 10];
+        const channelLabels = ['虎牙视频', '虎牙直播回放切片视频', '虎牙AI礼物特效视频', '虎牙一起看视频'];
+        
+        // 友商对比数据
+        const yidunVolumes = [3200, 4500, 1850, 2200, 1350, 1150, 1550, 1900, 1950, 3200, 1900, 2100, 2000, 2050, 2300, 2650, 2000, 1980, 2000, 2650, 1700, 1750, 1900, 2100, 2500, 2150, 1650, 1850, 2150, 2471, 1935];
+        const zhengtongVolumes = [747, 885, 442, 516, 340, 317, 437, 519, 500, 747, 491, 534, 538, 566, 631, 682, 544, 516, 516, 644, 399, 446, 475, 531, 647, 567, 420, 477, 517, 580, 386];
+        const yidunQueueTimes = [1.5, 1.8, 2.1, 2.5, 2.2, 1.9, 1.7, 1.6, 1.8, 2.0, 2.1, 1.9, 1.7, 1.6, 1.5, 1.4, 1.6, 1.8, 1.9, 1.7, 2.0, 2.1, 1.8, 1.6, 1.5, 1.7, 1.9, 1.8, 1.6, 4.08, 1.36];
+        const zhengtongQueueTimes = [0.8, 0.9, 1.1, 1.3, 1.1, 0.9, 0.8, 0.7, 0.8, 0.9, 1.0, 0.9, 0.8, 0.7, 0.6, 0.6, 0.7, 0.8, 0.9, 0.8, 1.0, 1.1, 0.9, 0.7, 0.6, 0.7, 0.9, 0.8, 0.7, 0.8, 0.6];
+
+        // Chart.js 全局配置
+        Chart.defaults.color = '#6b7280';
+        Chart.defaults.borderColor = 'rgba(107, 114, 128, 0.1)';
+        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
+
+        // 1. 每日产能与排队趋势（双轴线面积图）
+        new Chart(document.getElementById('trendChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: '转化后审核量',
+                        data: transformedVolumes,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: '实际审核量',
+                        data: auditVolumes,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: '排队时长(分)',
+                        data: queueTimes,
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#ef4444',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        align: 'end',
+                        labels: { padding: 20, usePointStyle: true }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        grid: { color: 'rgba(107, 114, 128, 0.1)' },
+                        title: { display: true, text: '审核量' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        grid: { display: false },
+                        title: { display: true, text: '排队时长(分)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 2. 人员转化产能排行 Top 12
+        new Chart(document.getElementById('personRankChart'), {
+            type: 'bar',
+            data: {
+                labels: personNames,
+                datasets: [{
+                    label: '转化产能',
+                    data: personValues,
+                    backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                    borderColor: '#3b82f6',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return '转化产能: ' + context.parsed.x.toFixed(2) + ' 条';
+                            }
+                        }
+                    },
+                    datalabels: {
+                        display: true,
+                        color: '#1e293b',
+                        font: { weight: 'bold' }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(107, 114, 128, 0.1)' },
+                        title: { display: true, text: '转化产能（条）' }
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 3. 24小时时段工作量分布
+        new Chart(document.getElementById('hourlyChart'), {
+            type: 'bar',
+            data: {
+                labels: Array.from({length: 24}, (_, i) => `${i}:00`),
+                datasets: [{
+                    label: '审核量',
+                    data: hourlyData,
+                    backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                    borderColor: '#8b5cf6',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(107, 114, 128, 0.1)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 4. 审核通道占比（环形图）
+        new Chart(document.getElementById('channelChart'), {
+            type: 'doughnut',
+            data: {
+                labels: channelLabels,
+                datasets: [{
+                    data: channelData,
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(139, 92, 246, 0.8)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        // 5. 友商审核量级对比
+        new Chart(document.getElementById('volumeComparisonChart'), {
+            type: 'bar',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: '易盾BPO',
+                        data: yidunVolumes,
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    },
+                    {
+                        label: '证通',
+                        data: zhengtongVolumes,
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderColor: '#f59e0b',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, usePointStyle: true }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(107, 114, 128, 0.1)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 6. 友商排队时长对比
+        new Chart(document.getElementById('queueComparisonChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [
+                    {
+                        label: '易盾BPO',
+                        data: yidunQueueTimes,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1
+                    },
+                    {
+                        label: '证通',
+                        data: zhengtongQueueTimes,
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#f59e0b',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, usePointStyle: true }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(107, 114, 128, 0.1)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
