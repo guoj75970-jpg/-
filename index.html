@@ -329,58 +329,10 @@
         </div>
     </div>
 
-    <!-- 7月趋势图表 -->
-    <div class="charts-section" style="padding-top:0">
-        <div class="chart-card">
-            <h3>7月每日产能趋势（将随天数增加自动扩展）</h3>
-            <div class="chart-wrapper">
-                <canvas id="julyTrendChart"></canvas>
-            </div>
-        </div>
-        <div class="chart-card">
-            <h3>7月审核通道分布</h3>
-            <div class="chart-wrapper">
-                <canvas id="julyChannelChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- 图表区域 -->
-    <div class="charts-section">
-        <div class="chart-card">
-            <h3>每日产能与排队趋势(双轴线面积图)</h3>
-            <div class="chart-wrapper">
-                <canvas id="trendChart"></canvas>
-            </div>
-        </div>
-        <div class="chart-card">
-            <h3>人员转化产能排行 Top 12</h3>
-            <div class="chart-wrapper">
-                <canvas id="personRankChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- 底部图表 -->
-    <div class="bottom-section">
-        <div class="chart-card">
-            <h3>24小时时段工作量分布(热力峰值)</h3>
-            <div class="chart-wrapper">
-                <canvas id="hourlyChart"></canvas>
-            </div>
-        </div>
-        <div class="chart-card">
-            <h3>审核通道分布(白名单应用占比)</h3>
-            <div class="chart-wrapper">
-                <canvas id="channelChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- 友商对比 -->
+    <!-- 友商对比（7月当月） -->
     <div class="comparison-section">
         <div class="comparison-header">
-            <h2>友商运营对比(易盾 vs 证通)</h2>
+            <h2>友商运营对比(易盾 vs 证通) - 7月</h2>
         </div>
         <div class="comparison-grid">
             <div class="chart-card">
@@ -398,6 +350,47 @@
         </div>
     </div>
 
+    <!-- 底部图表 -->
+    <div class="bottom-section">
+        <div class="chart-card">
+            <h3>7月24小时时段工作量分布</h3>
+            <div class="chart-wrapper">
+                <canvas id="hourlyChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>7月人员转化产能排行 Top 12</h3>
+            <div class="chart-wrapper">
+                <canvas id="personRankChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7月趋势图表 -->
+    <div class="charts-section" style="padding-top:0">
+        <div class="chart-card">
+            <h3>7月每日产能趋势</h3>
+            <div class="chart-wrapper">
+                <canvas id="julyTrendChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>7月应用分布</h3>
+            <div class="chart-wrapper">
+                <canvas id="julyChannelChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="charts-section">
+        <div class="chart-card">
+            <h3>每日产能与排队趋势(双轴线面积图)</h3>
+            <div class="chart-wrapper">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+    </div>
+
     <script>
         // 数据
         const dates = ['6.1','6.2','6.3','6.4','6.5','6.6','6.7','6.8','6.9','6.10','6.11','6.12','6.13','6.14','6.15','6.16','6.17','6.18','6.19','6.20','6.21','6.22','6.23','6.24','6.25','6.26','6.27','6.28','6.29','6.30','7.1','7.2','7.3','7.4','7.5','7.6','7.7'];
@@ -407,22 +400,19 @@
         const transformedVolumes = [1046, 1470, 1720, 1900, 1100, 960, 1320, 1650, 1680, 1600, 1620, 1800, 1700, 1750, 1950, 2200, 1700, 1650, 1680, 2200, 1400, 1460, 1580, 1750, 2100, 1810, 1380, 1550, 1780, 1980, 1843, 2263, 2628, 2117, 2305, 2496, 2343];
         const queueTimes = [1.29, 1.17, 1.42, 1.4, 1.6, 1.57, 1.55, 1.38, 1.22, 1.12, 1.22, 1.18, 1.29, 1.46, 1.36, 1.1, 1.37, 1.49, 1.49, 1.28, 1.43, 1.5, 1.38, 1.24, 1.35, 1.51, 1.54, 1.51, 1.43, 1.48, 1.36, 1.34, 1.32, 1.46, 1.45, 1.32, 1.27];
 
-        // 人员排行数据(7.1日易盾BPO)
-        const personNames = ['江宜瑾', '罗丹', '呙怡帆', '曾坚城', '王鸣', '黄金宝', '昝瑜凡', '吴桂耀', '罗志洋', '李明朗', '邵嘉飞', '梁智锋'];
-        const personValues = [1140, 1089, 976, 940, 923, 910, 907, 858, 821, 801, 788, 722];
+        // 7月人员排行(7.1-7.7累计，剔除低质)
+        const personNames = ['罗丹', '江宜瑾', '呙怡帆', '曾坚城', '吴桂耀', '王鸣', '邵嘉飞', '李明朗', '黄金宝', '昝瑜凡', '梁智锋', '刘定乐'];
+        const personValues = [1585, 1514, 1406, 1354, 1252, 1250, 1211, 1202, 1109, 1067, 1051, 999];
 
-        // 24小时数据
-        const hourlyData = [124, 132, 88, 103, 149, 65, 103, 133, 89, 62, 74, 94, 61, 37, 164, 117, 140, 184, 95, 103, 110, 165, 169, 122];
+        // 7月24小时时段数据
+        const hourlyData = [712, 613, 545, 481, 510, 531, 613, 506, 595, 461, 502, 1113, 889, 540, 998, 1092, 1526, 1429, 896, 755, 816, 1027, 874, 818];
 
-        // 通道占比(含7.1累计)
-        const channelData = [18489, 285, 54];
-        const channelLabels = ['虎牙视频', '虎牙直播回放切片视频', '虎牙AI礼物特效视频'];
-
-        // 友商对比数据
-        const yidunVolumes = [1565, 2091, 2292, 2716, 1690, 1467, 1987, 2419, 2450, 2382, 2391, 2634, 2538, 2616, 2931, 3332, 2544, 2496, 2516, 3294, 2099, 2196, 2375, 2631, 3147, 2717, 2070, 2327, 2667, 2963, 2196, 2682, 3036, 2492, 2749, 2936, 2751];
-        const zhengtongVolumes = [9652, 10769, 10693, 11542, 11887, 12130, 10862, 11144, 9942, 9342, 10108, 11132, 12430, 12969, 12581, 11391, 12132, 11899, 9812, 12333, 11549, 13371, 11554, 12043, 11455, 12247, 13974, 10815, 12532, 13434, 13862, 12245, 11707, 13113, 13112, 13838, 13291];
-        const yidunQueueTimes = [1.29, 1.17, 1.42, 1.4, 1.6, 1.57, 1.55, 1.38, 1.22, 1.12, 1.22, 1.18, 1.29, 1.46, 1.36, 1.1, 1.37, 1.49, 1.49, 1.28, 1.43, 1.5, 1.38, 1.24, 1.35, 1.51, 1.54, 1.51, 1.43, 1.48, 1.36, 1.34, 1.32, 1.46, 1.45, 1.32, 1.27];
-        const zhengtongQueueTimes = [0.88, 0.83, 0.93, 0.92, 0.86, 0.79, 0.86, 0.87, 0.84, 0.81, 0.81, 0.87, 0.83, 0.82, 0.79, 0.84, 0.92, 0.87, 0.86, 0.81, 0.8, 0.81, 0.85, 0.84, 0.86, 0.87, 0.77, 0.88, 0.88, 0.75, 0.75, 0.91, 0.82, 0.79, 0.87, 0.82, 0.81];
+        // 7月友商对比数据
+        const julyLabels = ['7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7'];
+        const yidunVolumes = [2196, 2682, 3036, 2492, 2749, 2936, 2751];
+        const zhengtongVolumes = [13862, 12245, 11707, 13113, 13112, 13838, 13291];
+        const yidunQueueTimes = [1.36, 1.34, 1.32, 1.46, 1.45, 1.32, 1.27];
+        const zhengtongQueueTimes = [0.75, 0.91, 0.82, 0.79, 0.87, 0.82, 0.81];
 
         // Chart.js 全局配置
         Chart.defaults.color = '#6b7280';
@@ -595,43 +585,11 @@
             }
         });
 
-        // 4. 审核通道占比(环形图)
-        new Chart(document.getElementById('channelChart'), {
-            type: 'doughnut',
-            data: {
-                labels: channelLabels,
-                datasets: [{
-                    data: channelData,
-                    backgroundColor: [
-                        'rgba(59, 130, 246, 0.8)',
-                        'rgba(16, 185, 129, 0.8)',
-                        'rgba(245, 158, 11, 0.8)'
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            padding: 20,
-                            usePointStyle: true
-                        }
-                    }
-                },
-                cutout: '60%'
-            }
-        });
-
-        // 5. 友商审核量级对比
+        // 5. 友商审核量级对比(7月)
         new Chart(document.getElementById('volumeComparisonChart'), {
             type: 'bar',
             data: {
-                labels: dates,
+                labels: julyLabels,
                 datasets: [
                     {
                         label: '易盾BPO',
@@ -672,11 +630,11 @@
             }
         });
 
-        // 6. 友商排队时长对比
+        // 6. 友商排队时长对比(7月)
         new Chart(document.getElementById('queueComparisonChart'), {
             type: 'line',
             data: {
-                labels: dates,
+                labels: julyLabels,
                 datasets: [
                     {
                         label: '易盾BPO',
@@ -771,7 +729,7 @@
             }
         });
 
-        // 7月审核通道分布
+        // 7月应用分布
         new Chart(document.getElementById('julyChannelChart'), {
             type: 'doughnut',
             data: {
