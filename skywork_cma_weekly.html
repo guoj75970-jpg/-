@@ -1,42 +1,351 @@
-<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CMA转化进展 · H2总览</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CMA转化进展 H2总览</title>
 <style>
-:root{--blue:#2563eb;--blue2:#1d4ed8;--ink:#1e293b;--muted:#64748b;--line:#e8ecf1;--bg:#f3f4f6;--green:#059669;--red:#dc2626;--amber:#d97706;--violet:#7c3aed}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.55}.wrap{max-width:1440px;margin:auto;padding:24px}.hero{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border-radius:16px;padding:30px 34px;box-shadow:0 12px 28px #1d4ed82b}.hero-top,.section-title,.fb-f,.business-head{display:flex;justify-content:space-between;gap:18px;align-items:center}.hero h1{font-size:30px;margin:8px 0}.hero p{margin:0;opacity:.9}.hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.hero-kpi{padding:12px 14px;border:1px solid #ffffff35;background:#ffffff12;border-radius:10px}.hero-kpi b{display:block;font-size:20px}.hero-kpi span{font-size:11px;opacity:.85}.tag,.pill{display:inline-block;border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}.tag{background:#ffffff20;border:1px solid #ffffff38}.pill.blue{background:#eff6ff;color:#2563eb}.pill.green{background:#ecfdf5;color:#047857}.pill.red{background:#fef2f2;color:#b91c1c}.pill.amber{background:#fffbeb;color:#b45309}.pill.gray{background:#f1f5f9;color:#64748b}section{margin-top:26px}.section-title{align-items:flex-end;margin-bottom:12px}.section-title h2{font-size:21px;margin:0}.hint{font-size:12px;color:var(--muted)}.card,.business,.panel,.ms-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 8px #17203308}.card{padding:20px}.table-card{padding:0;overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}th{background:#f8fafc;color:var(--muted);font-weight:700;white-space:nowrap}tbody tr:last-child td{border-bottom:0}.group-cell{font-weight:800;color:#334155;background:#fbfdff}.num{text-align:right;font-variant-numeric:tabular-nums}.fg{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.fc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;min-width:0}.fm{font-size:12px;color:var(--muted)}.ft{font-size:22px;font-weight:800;margin:6px 0;color:var(--blue)}.fs{font-size:11px;color:var(--muted)}.fb{font-weight:700}.fee-detail{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;margin-top:12px}.fee-detail table{min-width:0}.progress{height:11px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:14px 0 8px}.pb{height:100%;background:var(--blue);border-radius:99px}.pf{font-size:12px;color:var(--muted)}.formula{font-size:13px;background:#eff6ff;color:#1e40af;border-radius:10px;padding:12px;margin-top:12px}.business{padding:24px;margin-bottom:16px}.business-head{align-items:flex-start}.business h3{font-size:21px;margin:4px 0}.business-head p{font-size:13px;color:var(--muted);margin:0}.eyebrow{font-size:12px;color:var(--blue);font-weight:800}.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin:18px 0}.metric{border:1px solid var(--line);border-radius:10px;background:#fbfdff;padding:12px}.metric-label{font-size:11px;color:var(--muted)}.metric-value{font-size:24px;font-weight:800;margin:5px 0}.metric-value.good{color:var(--green)}.metric-value.bad{color:var(--red)}.metric-sub{font-size:11px;color:var(--muted)}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{padding:16px}.panel h4,.subhead{font-size:14px;margin:0 0 10px}.panel table{min-width:0}.panel th,.panel td{padding:9px 8px}.subsection{margin-top:14px}.match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.match-card{border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:9px;padding:12px;background:#fff}.match-card b{display:block;font-size:13px}.match-card span{display:block;font-size:12px;color:var(--muted);margin-top:6px}.diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.diag{padding:13px;border-radius:10px;background:#f8fafc;border:1px solid var(--line)}.diag b{font-size:13px}.diag p{font-size:12px;color:var(--muted);margin:7px 0 0}.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.chart{border:1px solid var(--line);border-radius:10px;padding:14px}.chart-title{font-size:13px;font-weight:800;margin-bottom:12px}.chart-area{height:156px;position:relative;border-left:1px solid #cbd5e1;border-bottom:1px solid #cbd5e1;background:repeating-linear-gradient(to top,#f8fafc 0,#f8fafc 38px,#e2e8f0 39px)}.chart-line{position:absolute;height:3px;background:var(--blue);transform-origin:left center}.chart-line.green{background:var(--green)}.dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--blue);transform:translate(-50%,50%);box-shadow:0 0 0 3px #dbeafe}.dot.green{background:var(--green);box-shadow:0 0 0 3px #d1fae5}.chart-label{position:absolute;font-size:10px;color:#475569;transform:translateX(-50%)}.axis{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px}.ms-card{display:grid;grid-template-columns:145px 1fr;gap:12px;padding:15px;margin-bottom:9px}.msh{font-weight:800;font-size:14px}.msv{font-size:13px;color:var(--muted)}.source{font-size:11px;color:var(--muted);margin:18px 2px 8px}.ok{color:var(--green)}.warn{color:var(--amber)}.risk{color:var(--red)}
-@media(max-width:1200px){.fg,.metrics{grid-template-columns:repeat(3,1fr)}.match-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:820px){.wrap{padding:12px}.hero{padding:22px 18px}.hero-top,.section-title,.business-head{align-items:flex-start;flex-direction:column}.hero-kpis,.fee-detail,.two-col,.charts{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:repeat(2,1fr)}.diag-grid{grid-template-columns:1fr}.table-card table{min-width:1000px}}@media(max-width:520px){.hero-kpis,.fee-detail,.two-col,.charts,.metrics,.fg,.match-grid{grid-template-columns:1fr}.ms-card{grid-template-columns:1fr}}
-  /* Lofter CMA周报视觉基线：白底、浅灰卡片、蓝色标题线，不使用大面积渐变头图 */
-  body{background:#f8f9fa;padding:24px;line-height:1.7}.wrap{max-width:1400px;padding:0}.hero{background:transparent;color:var(--ink);border-radius:0;padding:0;box-shadow:none}.hero-top{align-items:flex-start}.hero h1{font-size:26px;font-weight:700;margin:0 0 6px}.hero p{color:var(--muted);font-size:13px;opacity:1}.hero .tag{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe}.hero-top>.tag{display:none}.hero-kpis{display:none}.section-title{display:block;margin:0 0 18px}.section-title h2{font-size:18px;font-weight:700;padding:0 0 10px;border-bottom:2px solid var(--blue)}section{margin-top:0}.section-title .hint{display:block;margin-top:7px}.card,.business,.panel,.ms-card{border-radius:12px;box-shadow:none}.business{padding:28px 32px}.hero + section{margin-top:0}
-</style></head><body><main class="wrap">
-<header class="hero"><div class="hero-top"><div><h1>CMA转化进展 H2总览</h1><p>数据源：CMA业务相关文件｜测试业务：Skywork文本输入、文本输出｜本周第3周（7/13－7/17）｜数据更新至 2026-07-15</p></div><span class="tag">H2目标 ¥106,000</span></div></header>
-<section><div class="section-title"><h2>📊 一、CMA业务全景总览</h2><span class="hint">产品、阶段、计划与人力统一呈现</span></div><div class="card table-card"><table><thead><tr><th>产品</th><th>业务</th><th>数据类型</th><th>CMA阶段</th><th>上线指标</th><th>预计上线</th><th>状态</th><th>预估人力</th></tr></thead><tbody>
-<tr><td class="group-cell" rowspan="6">Skywork</td><td><b>Skywork-新业务-文本输入</b></td><td>文本</td><td>优化期</td><td>准确率98.5%+覆盖率90%</td><td>7.13</td><td><span class="pill green">指标达标</span></td><td class="group-cell" rowspan="6">1.0人</td></tr>
-<tr><td><b>Skywork-新业务-文本输出</b></td><td>文本</td><td>调试期</td><td>准确率98.5%+覆盖率90%</td><td>7.20</td><td><span class="pill amber">继续优化</span></td></tr>
-<tr><td><b>Skywork-新业务-昵称业务</b></td><td>文本</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>7.20</td><td><span class="pill blue">样本准备</span></td></tr>
-<tr><td><b>Skywork-普通文本</b></td><td>长文本</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>7.27</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td><b>Skywork-新业务-图片</b></td><td>图片</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.30</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td><b>Skywork-图片</b></td><td>图片</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.10</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td class="group-cell" rowspan="4">Skymusic</td><td><b>Skymusic-国内文本</b></td><td>文本</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span class="pill gray">待启动</span></td><td class="group-cell" rowspan="4">0.5人</td></tr>
-<tr><td><b>Skymusic-国内图片</b></td><td>图片</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.31</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td><b>Skymusic-国外文本</b></td><td>文本</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td><b>Skymusic-国外图片</b></td><td>图片</td><td>启动期</td><td>准确率98.5%+覆盖率90%</td><td>8.31</td><td><span class="pill gray">待启动</span></td></tr>
-<tr><td class="group-cell">任你购</td><td><b>任你购</b></td><td>商品截屏</td><td>启动期</td><td>准确率99%+覆盖率30%</td><td>9.10</td><td><span class="pill gray">待启动</span></td><td class="group-cell">2.0人</td></tr>
-</tbody></table></div></section>
-<section><div class="section-title"><h2>💰 二、H2费用转化目标看板</h2><span class="hint">6个月度卡片 + 表格明细 + 累计进度</span></div><div class="fg">
-<div class="fc"><div class="fm">7月</div><div class="ft">¥10,000</div><div class="fs">约1.6人｜文本输入上线</div></div><div class="fc"><div class="fm">8月</div><div class="ft">¥16,000</div><div class="fs">约2.6人｜文本输出+昵称</div></div><div class="fc"><div class="fm">9月</div><div class="ft">¥20,000</div><div class="fs">约3.3人｜普通文本+图片</div></div><div class="fc"><div class="fm">10月</div><div class="ft">¥20,000</div><div class="fs">约3.3人｜Sky音乐文本</div></div><div class="fc"><div class="fm">11月</div><div class="ft">¥20,000</div><div class="fs">约3.3人｜音乐图片</div></div><div class="fc"><div class="fm">12月</div><div class="ft">¥20,000</div><div class="fs">约3.3人｜任你购收尾</div></div></div>
-<div class="fee-detail"><div class="card table-card"><table><thead><tr><th>月份</th><th class="num">目标金额</th><th>缩减人力当量</th><th>关键里程碑</th></tr></thead><tbody><tr><td>7月</td><td class="num">¥10,000</td><td>约1.6人</td><td>文本输入上线</td></tr><tr><td>8月</td><td class="num">¥16,000</td><td>约2.6人</td><td>文本输出、昵称</td></tr><tr><td>9月</td><td class="num">¥20,000</td><td>约3.3人</td><td>普通文本、图片</td></tr><tr><td>10－12月</td><td class="num">¥60,000</td><td>约9.9人·月</td><td>Skymusic、任你购收尾</td></tr><tr><td><b>H2合计</b></td><td class="num"><b>¥106,000</b></td><td><b>约17.4人·月</b></td><td>完成H2转化目标</td></tr></tbody></table></div><div class="card"><div class="fb-f"><b>H2累计转化进度</b><b>¥0 / ¥106,000</b></div><div class="progress"><div class="pb" style="width:0"></div></div><div class="pf">当前暂无已确认落地金额，7月目标为 ¥10,000。</div><div class="formula">月目标×50%（7月）＋月目标×80%（8月）＋月目标×100%（9－12月）＝ ¥106,000</div></div></div></section>
-<section><div class="section-title"><h2>🔍 三、本周第3周 · 测试详情</h2><span class="hint">每个业务均按5层模板展开</span></div>
-<article class="business"><div class="business-head"><div><span class="eyebrow">Skywork-新业务-文本输入 · V10</span><h3>生产与边界指标均达到上线要求</h3><p>生产策略14020；边界策略24021（V1）、20016（V2）</p></div><span class="pill green">达标</span></div>
-<div class="metrics"><div class="metric"><div class="metric-label">综合准确率</div><div class="metric-value good">99.73%</div><div class="metric-sub">目标≥98%</div></div><div class="metric"><div class="metric-label">判白准确率</div><div class="metric-value good">100%</div><div class="metric-sub">目标≥95%</div></div><div class="metric"><div class="metric-label">覆盖率</div><div class="metric-value good">99.47%</div><div class="metric-sub">目标≥90%</div></div><div class="metric"><div class="metric-label">判黑准确率</div><div class="metric-value good">99.03%</div><div class="metric-sub">102/103</div></div><div class="metric"><div class="metric-label">误判</div><div class="metric-value">2条</div><div class="metric-sub">历史敏感/政策说明</div></div><div class="metric"><div class="metric-label">漏放</div><div class="metric-value">1条</div><div class="metric-sub">组合语义</div></div></div>
-<div class="two-col"><div class="panel"><h4>生产验证表</h4><table><thead><tr><th>版本</th><th>策略</th><th>样本</th><th>有效</th><th>准确率</th><th>CMA失败</th></tr></thead><tbody><tr><td>V10</td><td>14020</td><td>1,134</td><td>1,131</td><td class="ok">99.73%</td><td>3</td></tr></tbody></table></div><div class="panel"><h4>边界黑样本表</h4><table><thead><tr><th>版本</th><th>策略</th><th>样本</th><th>拦截</th><th>拦截率</th><th>漏放</th></tr></thead><tbody><tr><td>V1</td><td>24021</td><td>98</td><td>92</td><td>93.90%</td><td>6</td></tr><tr><td>V2</td><td>20016</td><td>99</td><td>95</td><td class="ok">95.96%</td><td>4</td></tr></tbody></table></div></div>
-<div class="subsection"><h4 class="subhead">策略匹配度分析</h4><div class="match-grid"><div class="match-card"><b>策略逻辑</b><span>生产与边界分别验证，覆盖正常样本和高风险边界样本。</span></div><div class="match-card"><b>核心关注指标</b><span>综合准确率、判白准确率和边界拦截率均持续稳定。</span></div><div class="match-card"><b>样本需求</b><span>补充组合语义、政策说明及历史敏感边界正反例。</span></div><div class="match-card"><b>风险评估</b><span class="ok">整体低风险，可进入上线评审与灰度观察。</span></div></div></div>
-<div class="subsection"><h4 class="subhead">样本分布与问题诊断</h4><div class="diag-grid"><div class="diag"><b>白样本</b><p>判白准确率100%，正常内容误伤风险低，继续关注引用和说明语境。</p></div><div class="diag"><b>黑样本</b><p>判黑准确率99.03%，当前1条漏放集中在组合语义识别。</p></div><div class="diag"><b>边界样本</b><p>V1→V2拦截率93.90%→95.96%，优化方向有效。</p></div></div></div>
-<div class="subsection"><h4 class="subhead">迭代历程</h4><div class="charts"><div class="chart"><div class="chart-title">生产准确率迭代（V1－V10）</div><div class="chart-area"><span class="chart-label" style="left:8%;bottom:12%">低位</span><span class="chart-label" style="left:72%;bottom:72%">99%+</span><span class="chart-label" style="left:94%;bottom:84%">99.73%</span><i class="chart-line" style="left:8%;bottom:14%;width:66%;transform:rotate(-46deg)"></i><i class="chart-line green" style="left:72%;bottom:72%;width:23%;transform:rotate(-12deg)"></i><i class="dot" style="left:8%;bottom:14%"></i><i class="dot" style="left:72%;bottom:72%"></i><i class="dot green" style="left:94%;bottom:84%"></i></div><div class="axis"><span>V1</span><span>V7</span><span>V10</span></div></div><div class="chart"><div class="chart-title">边界拦截率迭代</div><div class="chart-area"><span class="chart-label" style="left:18%;bottom:67%">93.90%</span><span class="chart-label" style="left:82%;bottom:78%">95.96%</span><i class="chart-line green" style="left:18%;bottom:67%;width:65%;transform:rotate(-9deg)"></i><i class="dot green" style="left:18%;bottom:67%"></i><i class="dot green" style="left:82%;bottom:78%"></i></div><div class="axis"><span>V1 / 24021</span><span>V2 / 20016</span></div></div></div></div></article>
-<article class="business"><div class="business-head"><div><span class="eyebrow">Skywork-新业务-文本输出 · V2（7/14）</span><h3>漏放显著收敛，但误判上升</h3><p>生产策略19021；边界仍沿用7/10策略13017，待补测V2边界样本</p></div><span class="pill red">需优化</span></div>
-<div class="metrics"><div class="metric"><div class="metric-label">综合准确率</div><div class="metric-value bad">95.72%</div><div class="metric-sub">目标≥98%</div></div><div class="metric"><div class="metric-label">判白准确率</div><div class="metric-value good">99.00%</div><div class="metric-sub">目标≥95%</div></div><div class="metric"><div class="metric-label">覆盖率</div><div class="metric-value good">99.73%</div><div class="metric-sub">目标≥90%</div></div><div class="metric"><div class="metric-label">判黑准确率</div><div class="metric-value">84.85%</div><div class="metric-sub">56/66</div></div><div class="metric"><div class="metric-label">误判</div><div class="metric-value bad">37条</div><div class="metric-sub">正常内容被拦截</div></div><div class="metric"><div class="metric-label">漏放</div><div class="metric-value">10条</div><div class="metric-sub">V1为47条</div></div></div>
-<div class="two-col"><div class="panel"><h4>生产验证表</h4><table><thead><tr><th>版本</th><th>策略</th><th>样本</th><th>有效</th><th>准确率</th><th>误判/漏放</th></tr></thead><tbody><tr><td>V1</td><td>13016</td><td>1,101</td><td>1,098</td><td>95.00%</td><td>5 / 47</td></tr><tr><td>V2</td><td>19021</td><td>1,101</td><td>1,098</td><td class="warn">95.72%</td><td>37 / 10</td></tr></tbody></table></div><div class="panel"><h4>边界黑样本表</h4><table><thead><tr><th>版本</th><th>策略</th><th>样本</th><th>拦截</th><th>拦截率</th><th>漏放</th></tr></thead><tbody><tr><td>V1</td><td>13017</td><td>101</td><td>55</td><td class="risk">54.46%</td><td>46</td></tr><tr><td>V2</td><td>待补测</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div></div>
-<div class="subsection"><h4 class="subhead">策略匹配度分析</h4><div class="match-grid"><div class="match-card"><b>策略逻辑</b><span>V2增强高风险识别，漏放从47条降至10条。</span></div><div class="match-card"><b>核心关注指标</b><span>综合准确率仍未达98%，误判37条成为当前主要损失。</span></div><div class="match-card"><b>样本需求</b><span>补测V2边界101条，并按复核后的标签重新评估。</span></div><div class="match-card"><b>风险评估</b><span class="risk">召回提升以误伤增加为代价，暂不建议直接上线。</span></div></div></div>
-<div class="subsection"><h4 class="subhead">样本分布与问题诊断</h4><div class="diag-grid"><div class="diag"><b>白样本</b><p>判白准确率仍达99%，但误判增至37条，需按违规类目拆分收敛。</p></div><div class="diag"><b>黑样本</b><p>漏放从47条降至10条，判黑准确率提升至84.85%，方向有效。</p></div><div class="diag"><b>边界样本</b><p>当前仅有V1结果54.46%，无法代表V2能力，必须补测。</p></div></div></div>
-<div class="subsection"><h4 class="subhead">迭代历程</h4><div class="charts"><div class="chart"><div class="chart-title">生产综合准确率</div><div class="chart-area"><span class="chart-label" style="left:18%;bottom:52%">95.00%</span><span class="chart-label" style="left:82%;bottom:61%">95.72%</span><i class="chart-line" style="left:18%;bottom:52%;width:65%;transform:rotate(-8deg)"></i><i class="dot" style="left:18%;bottom:52%"></i><i class="dot" style="left:82%;bottom:61%"></i></div><div class="axis"><span>V1 / 13016</span><span>V2 / 19021</span></div></div><div class="chart"><div class="chart-title">错误结构变化</div><div class="chart-area"><span class="chart-label" style="left:18%;bottom:75%">漏放47</span><span class="chart-label" style="left:82%;bottom:22%">漏放10</span><i class="chart-line green" style="left:18%;bottom:75%;width:68%;transform:rotate(39deg)"></i><i class="dot green" style="left:18%;bottom:75%"></i><i class="dot green" style="left:82%;bottom:22%"></i></div><div class="axis"><span>V1</span><span>V2（误判37）</span></div></div></div></div></article></section>
-<section><div class="section-title"><h2>⚡ 四、综合洞察 & 当前卡点</h2><span class="hint">聚焦可执行问题，不展示下周作战计划</span></div><div class="ms-card"><div class="msh risk">文本输出精度</div><div class="msv"><b>V2综合准确率95.72%，仍低于98%目标。</b> 漏放已由47条降至10条，但误判升至37条，需平衡召回与误伤。</div></div><div class="ms-card"><div class="msh warn">边界验证缺口</div><div class="msv">文本输出V2尚未完成边界黑样本复测，当前54.46%为V1结果，不能用于评价V2最终能力。</div></div><div class="ms-card"><div class="msh warn">平台稳定性</div><div class="msv">两项生产验证均出现3条CMA失败，失败率约0.26%－0.27%，需持续关注批量上传和平台稳定性。</div></div><div class="ms-card"><div class="msh ok">文本输入进展</div><div class="msv">文本输入V10生产准确率99.73%、边界V2拦截率95.96%，已满足核心上线门槛，可进入评审。</div></div></section>
-<p class="source">数据源：CMA业务清单.xlsx、策略验证结果导出-14020-20260710-V10.xlsx、策略验证结果导出-19021-20260714-V2.xlsx及对应边界文件。历史展示口径沿用已确认CMA看板需求文档。</p>
-</main></body></html>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#1e293b;line-height:1.6}
+.header{background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);padding:28px 40px 36px;color:#fff}
+.header-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
+.header-left h1{font-size:26px;font-weight:700;margin-bottom:6px}
+.header-left .subtitle{font-size:13px;opacity:.75}
+.header-right{font-size:13px;opacity:.85;line-height:1.8;text-align:right}
+.banner-wrap{max-width:1400px;margin:-24px auto 0;padding:0 24px}
+.banner-inner{background:#fff;border-radius:12px;padding:18px 28px;box-shadow:0 4px 16px rgba(0,0,0,.08);display:flex;align-items:center;gap:14px;font-size:15px;border:1px solid #e2e8f0}
+.container{max-width:1400px;margin:28px auto;padding:0 24px}
+.section-title{font-size:17px;font-weight:700;color:#0f172a;margin:36px 0 18px;display:flex;align-items:center;gap:10px}
+.section-title::before{content:"";width:4px;height:18px;background:#2563eb;border-radius:2px;flex-shrink:0}
+.card{background:#fff;border-radius:12px;border:1px solid #e8ecf1;padding:24px 28px;margin-bottom:18px}
+.info-card{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 24px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px}
+.info-card .text{font-size:15px;color:#1e3a5f;line-height:1.7}
+.warn-card{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 24px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px}
+.warn-card .text{font-size:15px;color:#78350f;line-height:1.7}
+.tag{display:inline-block;padding:2px 12px;border-radius:100px;font-size:12px;font-weight:600}
+.tag-g{background:#dcfce7;color:#16a34a}
+.tag-y{background:#fef3c7;color:#d97706}
+.tag-r{background:#fee2e2;color:#dc2626}
+.tag-b{background:#dbeafe;color:#2563eb}
+.tag-g2{background:#f1f5f9;color:#64748b}
+.tw{background:#fff;border-radius:12px;border:1px solid #e8ecf1;overflow:hidden;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#f8fafc;color:#334155;font-size:13px;font-weight:600;padding:12px 14px;text-align:center;border-bottom:2px solid #e2e8f0}
+td{padding:10px 14px;text-align:center;border-bottom:1px solid #f1f5f9}
+tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;background:#f8fafc;font-weight:600}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-bottom:18px}
+.ic{background:#fff;border-radius:12px;padding:20px;border:1px solid #e8ecf1;text-align:center}
+.ic .il{font-size:12px;color:#64748b;margin-bottom:8px}
+.ic .iv{font-size:28px;font-weight:800;color:#0f172a}
+.ic .iv.gr{color:#059669}
+.ic .iv.bl{color:#2563eb}
+.ic .iv.or{color:#d97706}
+.ic .iv.tl{color:#0d9488}
+.ic .is{font-size:11px;color:#94a3b8;margin-top:4px}
+.strategy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.sc{background:#fff;border-radius:10px;border:1px solid #e8ecf1;padding:16px}
+.sc .st{font-size:13px;font-weight:600;color:#0f172a;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #f1f5f9}
+.sc .sv{font-size:13px;color:#475569;line-height:1.7}
+.chart-box{position:relative;height:140px;padding:0 10px 20px}
+.chart-y{position:absolute;left:0;top:0;bottom:20px;width:36px;display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:#94a3b8;text-align:right;padding-right:6px}
+.chart-area{margin-left:44px;height:110px;position:relative;border-bottom:1px solid #e2e8f0;border-left:1px solid #e2e8f0}
+.chart-dot{position:absolute;width:10px;height:10px;border-radius:50%;transform:translate(-50%,50%);z-index:2;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.chart-dot-big{width:14px;height:14px;border-width:3px}
+.chart-label{position:absolute;transform:translateX(-50%);font-size:10px;top:12px;white-space:nowrap}
+.chart-legend{display:flex;gap:20px;justify-content:center;font-size:12px;color:#64748b;margin-top:4px}
+.chart-legend span{display:flex;align-items:center;gap:4px}
+.chart-legend .sw{width:12px;height:3px;border-radius:2px;display:inline-block}
+.fg{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:18px}
+.fc{background:#fff;border-radius:12px;border:1px solid #e8ecf1;padding:18px 16px;text-align:center}
+.fc .fm{font-size:13px;color:#64748b;margin-bottom:8px;font-weight:500}
+.fc .ft{font-size:22px;font-weight:800;color:#0f172a}
+.fc .ft.gr{color:#059669}.fc .ft.or{color:#d97706}.fc .ft.gy{color:#94a3b8}
+.fc .fs{font-size:12px;color:#94a3b8;margin-top:4px}
+.fc .fb{height:4px;background:#f1f5f9;border-radius:2px;margin-top:10px;overflow:hidden}
+.fc .fb-f{height:100%;border-radius:2px}
+.pb{height:6px;background:#f1f5f9;border-radius:3px;margin:8px 0;overflow:hidden}
+.pb .pf{height:100%;border-radius:3px}
+.ms-card{background:#fff;border-radius:10px;border:1px solid #e8ecf1;padding:16px;margin-bottom:10px}
+.ms-card .msh{font-size:14px;font-weight:600;margin-bottom:6px}
+.ms-card .msv{font-size:13px;color:#64748b;line-height:1.6}
+.plan-prio{display:inline-block;width:36px;height:24px;border-radius:4px;color:#fff;font-size:12px;font-weight:700;line-height:24px;text-align:center}
+.footer{text-align:center;margin-top:50px;padding:24px 0;font-size:13px;color:#94a3b8;border-top:1px solid #e2e8f0}
+@media(max-width:1200px){.side,.strategy-grid{grid-template-columns:1fr}.ig{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.strategy-grid,.ig{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header"><div class="header-content">
+<div class="header-left"><h1>CMA转化进展 · H2总览</h1><div class="subtitle">天工 · Skymusic · 任你购 — 业务全景 · 周度测试</div></div>
+<div class="header-right"><div>报告周度：7/13（周一）~ 7/17（周五）</div><div>更新：2026-07-15</div></div>
+</div></div>
+<div class="banner-wrap"><div class="banner-inner">
+<span style="font-size:24px">🎯</span>
+<span><strong>本周核心结论：</strong>Skywork-新业务-文本输入V10综合准确率99.73%、判白准确率100%、黑样本拦截率95.96%，<span style="color:#059669;font-weight:700">全部达标 ✅</span>。Skywork-新业务-文本输出V2综合准确率95.72%（漏放10条、误判37条），仍需继续优化。</span>
+</div></div>
+<div class="container">
+<!-- 一 -->
+<div class="section-title">📊 一、CMA业务全景总览</div>
+<div class="tw"><table>
+<thead><tr><th>产品</th><th>业务</th><th>数据类型</th><th>CMA阶段</th><th>上线指标</th><th>预计上线</th><th>状态</th><th>预估人力</th></tr></thead>
+<tbody>
+<!-- 天工 6行 -->
+<tr style="background:#f0fdf4">
+  <td rowspan="6" style="vertical-align:middle;background:#f0fdf4;font-weight:700;color:#059669;border-right:2px solid #d1fae5">天工</td>
+  <td style="text-align:left">Skywork-新业务-文本输入</td><td>文本</td>
+  <td><span class="tag tag-y">优化期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.13</td>
+  <td><span style="color:#059669;font-weight:600">🟢 V10通过</span></td>
+  <td rowspan="6" style="vertical-align:middle;background:#f0fdf4;font-weight:700;color:#059669">1.0</td>
+</tr>
+<tr><td style="text-align:left">Skywork-新业务-文本输出</td><td>文本</td>
+  <td><span class="tag tag-b">调试期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.20</td>
+  <td><span style="color:#d97706;font-weight:600">🟡 V2完成</span></td></tr>
+<tr><td style="text-align:left">Skywork-新业务-昵称业务</td><td>文本</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.20</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<tr><td style="text-align:left">Skywork-普通文本</td><td>长文本</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.27</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<tr><td style="text-align:left">新业务-图片</td><td>图片</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.30</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<tr><td style="text-align:left">图片</td><td>图片</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.10</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<!-- Skymusic 4行 -->
+<tr style="background:#faf5ff">
+  <td rowspan="4" style="vertical-align:middle;background:#faf5ff;font-weight:700;color:#7c3aed;border-right:2px solid #e9d5ff">Skymusic</td>
+  <td style="text-align:left">Skymusic-国内文本</td><td>文本</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td>
+  <td rowspan="4" style="vertical-align:middle;background:#faf5ff;font-weight:700;color:#7c3aed">0.5</td>
+</tr>
+<tr><td style="text-align:left">Skymusic-国内图片</td><td>图片</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.31</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<tr><td style="text-align:left">Skymusic-国外文本</td><td>文本</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<tr><td style="text-align:left">Skymusic-国外图片</td><td>图片</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.31</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
+<!-- 任你购 1行 -->
+<tr style="background:#fef2f2">
+  <td style="vertical-align:middle;background:#fef2f2;font-weight:700;color:#dc2626;border-right:2px solid #fecaca">任你购</td>
+  <td style="text-align:left">任你购</td><td>商品截屏</td>
+  <td><span class="tag tag-g2">启动期</span></td><td>准确率99%+覆盖率30%</td><td>9.10</td>
+  <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td>
+  <td style="font-weight:700;color:#dc2626">2.0</td>
+</tr>
+</tbody>
+<tfoot><tr>
+  <td colspan="3"><strong>合计</strong></td>
+  <td colspan="2">目标汇总：11个业务</td><td>—</td>
+  <td>上线可缩减</td>
+  <td><strong>3.5</strong></td>
+</tr></tfoot>
+</table></div>
+<div class="info-card"><span style="font-size:22px">💡</span><div class="text"><strong>全景小结：</strong>当前共<strong>11个CMA推进业务</strong>，按产品划分：<strong>天工 6个</strong>（文本输入V10通过·文本输出V1完成·其余4个待启动）、<strong>Skymusic 4个</strong>（全部待启动·预计8月启动）、<strong>任你购 1个</strong>（商品审核·9月攻坚）。全部上线后可缩减<strong>3.5人力</strong>（文本输入1.0+Skymusic国内文本0.5+任你购2.0）。</div></div>
+<!-- 二 -->
+<div class="section-title">💰 二、H2费用转化目标看板</div>
+<div class="card">
+<h4 style="margin-bottom:14px;font-size:15px;color:#0f172a">
+H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
+</h4>
+<p style="font-size:13px;color:#64748b;margin-bottom:14px">H2转化&降本总金额 = 月目标×50%（7月）+ 月目标×80%（8月）+ 月目标×100%（9~12月，共4个月）= 10,000 + 16,000 + 20,000×4 = <strong>106,000元</strong></p>
+<div class="fg">
+<div class="fc" style="border-color:#94a3b8"><div class="fm">7月</div><div class="ft gy">10,000</div><div class="fs">目标50%·~1.6人</div><div class="fb"><div class="fb-f" style="width:9%;background:#94a3b8"></div></div></div>
+<div class="fc" style="border-color:#d97706"><div class="fm">8月</div><div class="ft or">16,000</div><div class="fs">目标80%·~2.6人</div><div class="fb"><div class="fb-f" style="width:15%;background:#d97706"></div></div></div>
+<div class="fc"><div class="fm">9月</div><div class="ft gr">20,000</div><div class="fs">目标100%·~3.3人</div><div class="fb"><div class="fb-f" style="width:19%"></div></div></div>
+<div class="fc"><div class="fm">10月</div><div class="ft gr">20,000</div><div class="fs">目标100%·~3.3人</div><div class="fb"><div class="fb-f" style="width:19%"></div></div></div>
+<div class="fc"><div class="fm">11月</div><div class="ft gr">20,000</div><div class="fs">目标100%·~3.3人</div><div class="fb"><div class="fb-f" style="width:19%"></div></div></div>
+<div class="fc"><div class="fm">12月</div><div class="ft gr">20,000</div><div class="fs">目标100%·~3.3人</div><div class="fb"><div class="fb-f" style="width:19%"></div></div></div>
+</div>
+
+<div style="margin-top:16px;padding-top:16px;border-top:1px solid #e8ecf1">
+<table>
+<thead><tr><th>月份</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th><th>合计</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:600">月目标（元）</td><td>10,000</td><td>16,000</td><td>20,000</td><td>20,000</td><td>20,000</td><td>20,000</td><td><strong style="color:#059669">106,000</strong></td></tr>
+<tr><td style="font-weight:600">缩减人力当量</td><td>~1.6人</td><td>~2.6人</td><td>~3.3人</td><td>~3.3人</td><td>~3.3人</td><td>~3.3人</td><td><strong>~17.4人·月</strong></td></tr>
+<tr><td style="font-weight:600">关键里程碑</td><td>文本输入上线</td><td>+文本输出+昵称</td><td>+普通文本+图片</td><td>+Sky音乐文本</td><td>+音乐图片</td><td>任你购收尾</td><td>—</td></tr>
+</tbody>
+</table>
+<div style="margin-top:14px;padding:12px 18px;background:#f0fdf4;border-radius:8px;border:1px solid #d1fae5">
+<div style="display:flex;justify-content:space-between;font-size:13px;color:#64748b;margin-bottom:4px"><span>累计达成</span><span>0 / 106,000 元</span></div>
+<div class="pb"><div class="pf" style="width:0%;background:linear-gradient(90deg,#94a3b8,#059669)"></div></div>
+</div>
+</div>
+</div>
+<!-- 三 -->
+<div class="section-title">🔍 三、本周第3周 · 测试详情（7/13 ~ 7/17）</div>
+
+<!-- 业务1 -->
+<div class="info-card" style="margin-bottom:12px"><span style="font-size:24px">📝</span>
+<div class="text"><strong>业务1：Skywork-新业务-文本输入 · V10（策略14020）</strong><br>
+<span style="font-size:13px;color:#64748b">生产样本1,131条（剔除CMA失败3条）+ 边界黑样本99条</span></div></div>
+
+<div class="section-title" style="font-size:15px;margin-top:20px">📊 业务总览 · 核心指标</div>
+
+<div class="ig">
+<div class="ic"><div class="il">综合准确率</div><div class="iv gr">99.73%</div><div class="is">目标>=98% ✅</div></div>
+<div class="ic"><div class="il">判白准确率</div><div class="iv gr">100%</div><div class="is">目标>=95% ✅</div></div>
+<div class="ic"><div class="il">覆盖率</div><div class="iv bl">99.47%</div><div class="is">目标>=90% ✅</div></div>
+<div class="ic"><div class="il">判黑准确率</div><div class="iv gr">99.03%</div><div class="is">102/103正确拦截</div></div>
+<div class="ic"><div class="il">误判（错杀）</div><div class="iv tl">2条</div><div class="is">正常内容误拦截</div></div>
+<div class="ic"><div class="il">漏放</div><div class="iv or">1条</div><div class="is">违规内容被放行</div></div>
+</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📋 生产环境验证 · V10（策略14020）</div>
+<div class="side">
+<div class="tw"><table><thead><tr><th colspan="3">📋 生产验证（剔除失败后1,131条）</th></tr></thead><tbody>
+<tr><td>✅ 正确通过->CMA通过</td><td>1,026条</td><td>判白正确</td></tr>
+<tr><td>✅ 正确不通过->CMA不通过</td><td>102条</td><td>正确拦截</td></tr>
+<tr><td>❌ 误判（PASS->UN_PASS）</td><td><strong style="color:#d97706">2条</strong></td><td>历史敏感/政策说明</td></tr>
+<tr><td>❌ 漏放（UN_PASS->PASS）</td><td><strong style="color:#dc2626">1条</strong></td><td>组合语义违规</td></tr>
+<tr><td>⚠️ CMA失败（已剔除）</td><td>3条</td><td>模型异常0.26%</td></tr>
+</tbody><tfoot><tr><td colspan="2">✅ 验证一致性</td><td style="color:#059669">99.73%</td></tr></tfoot></table></div>
+<div class="tw"><table><thead><tr><th colspan="3">⬛ 边界黑样本（99条·V2·策略20016）</th></tr></thead><tbody>
+<tr><td>✅ CMA拦截成功</td><td>95条</td><td><span style="color:#059669;font-weight:700">95.96%</span></td></tr>
+<tr><td>❌ 漏放（通过）</td><td><strong style="color:#dc2626">4条</strong></td><td>4.04%</td></tr>
+</tbody><tfoot><tr><td colspan="2">✅ CMA拦截率</td><td style="color:#059669">95.96% ✅</td></tr></tfoot></table></div>
+</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📐 策略匹配度分析 · V10（策略14020）</div>
+<div class="strategy-grid">
+<div class="sc"><div class="st">🎯 策略逻辑</div><div class="sv">判白免审：CMA确认安全->PASS免审；不确定/违规->UN_PASS送人审。基于8维安全检查清单（涉政·未成年·色情·广告·边界·图片·违法违规·零容忍）。</div></div>
+<div class="sc"><div class="st">📊 核心关注指标</div><div class="sv">· 判白准确率：<strong style="color:#059669">100%</strong> ✅<br>· 判白覆盖率：<strong style="color:#059669">99.47%</strong> ✅<br>· 黑样本拦截率：<strong style="color:#059669">95.96%</strong> ✅<br>· 综合准确率：<strong style="color:#059669">99.73%</strong> ✅</div></div>
+<div class="sc"><div class="st">📋 样本需求</div><div class="sv">生产1,134条（多样化正常+违规文本）<br>边界黑样本99条（涉政61.6%·非法34.3%·公序4.0%）</div></div>
+<div class="sc"><div class="st">⚠️ 风险评估</div><div class="sv">· 误判2条·漏放1条<br>· CMA失败3条（0.26%）<br>· 总体：<strong style="color:#059669">低·可上线</strong></div></div>
+</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">🧩 样本分布与问题诊断</div>
+<div class="card"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+<div style="background:#f0fdf4;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#059669;margin-bottom:8px">⬜ 白样本（1,028条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7"><strong>正确率：</strong>1,026/1,028=99.81% ✅<br><strong>误判：</strong>2条（文革讨论、夏令营政策说明误拦）</p></div>
+<div style="background:#fef2f2;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#dc2626;margin-bottom:8px">⬛ 黑样本（99条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7">涉政61.6%·非法34.3%·公序4.0%<br><strong>拦截：</strong>95/99=95.96% ✅<br><strong>漏放：</strong>4条（涉政组合语义）</p></div>
+<div style="background:#fffbeb;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#d97706;margin-bottom:8px">🟡 边界（3条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7">CMA验证失败归类为边界。<br><strong>失败类型：</strong>模型异常导致结果不可用<br><strong>影响：</strong>0.26%概率异常</p></div>
+</div></div>
+
+<div class="section-title" style="font-size:15px;margin-top:20px">📈 迭代历程 · 生产 &amp; 边界并排</div>
+<div class="card"><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">生产数据·准确率（V1->V10）</h4>
+<div class="chart-box"><div class="chart-y"><span>100%</span><span>90%</span><span>80%</span><span>70%</span></div><div class="chart-area">
+<div class="chart-dot" style="bottom:78.9%;left:5%;background:#dc2626"></div>
+<div class="chart-label" style="left:5%;color:#dc2626;font-weight:600">V1 78.9</div>
+<div class="chart-dot" style="bottom:80.9%;left:15%;background:#d97706"></div>
+<div class="chart-dot" style="bottom:89.9%;left:25%;background:#d97706"></div>
+<div class="chart-dot" style="bottom:96.6%;left:35%;background:#d97706"></div>
+<div class="chart-label" style="left:35%">V5 96.6</div>
+<div class="chart-dot" style="bottom:99.2%;left:50%;background:#2563eb"></div>
+<div class="chart-dot" style="bottom:99.0%;left:60%;background:#2563eb"></div>
+<div class="chart-dot" style="bottom:99.5%;left:70%;background:#2563eb"></div>
+<div class="chart-dot chart-dot-big" style="bottom:99.7%;left:82%;background:#059669;border-color:#059669"></div>
+<div class="chart-label" style="left:82%;color:#059669;font-weight:700">V10 99.7</div>
+</div></div><div class="chart-legend">
+<span><span class="sw" style="background:#dc2626"></span>V1首版 78.9%</span>
+<span><span class="sw" style="background:#059669"></span>V10最优 99.7%</span>
+</div></div>
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">边界黑样本·拦截率（V1->V2）</h4>
+<div class="chart-box"><div class="chart-y"><span>100%</span><span>90%</span><span>80%</span></div><div class="chart-area">
+<div class="chart-dot chart-dot-big" style="bottom:93.9%;left:22%;background:#d97706;border-color:#d97706"></div>
+<div class="chart-label" style="left:22%;color:#d97706;font-weight:600">V1 93.9</div>
+<div class="chart-dot chart-dot-big" style="bottom:96%;left:68%;background:#d97706;border-color:#d97706"></div>
+<div class="chart-label" style="left:68%;color:#d97706;font-weight:600">V2 96.0</div>
+</div></div><div class="chart-legend">
+<span><span class="sw" style="background:#d97706"></span>V1: 93.9%（98条·漏6条）</span>
+<span><span class="sw" style="background:#d97706"></span>V2: 95.96%（漏4条）</span>
+</div></div>
+</div></div>
+<!-- 业务2 -->
+<div class="info-card" style="margin-bottom:12px;margin-top:28px"><span style="font-size:24px">📤</span>
+<div class="text"><strong>业务2：Skywork-新业务-文本输出 · V2（策略19021）</strong><br>
+<span style="font-size:13px;color:#64748b">本周完成V2生产验证·生产样本1,101条（有效1,098条）；边界仍沿用V1黑样本101条</span></div></div>
+
+<div class="ig">
+<div class="ic"><div class="il">综合准确率</div><div class="iv or">95.72%</div><div class="is">目标>=98% ❌</div></div>
+<div class="ic"><div class="il">判白准确率</div><div class="iv gr">99.00%</div><div class="is">995/1,005 ✅</div></div>
+<div class="ic"><div class="il">覆盖率</div><div class="iv bl">99.73%</div><div class="is">目标>=90% ✅</div></div>
+<div class="ic"><div class="il">判黑准确率</div><div class="iv or">84.85%</div><div class="is">56/66·较V1提升</div></div>
+<div class="ic"><div class="il">误判（错杀）</div><div class="iv tl">5条</div><div class="is">正常内容误拦截</div></div>
+<div class="ic"><div class="il">漏放</div><div class="iv ph">47条</div><div class="is">违规内容被放行</div></div>
+</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📋 生产环境验证 · V2（策略19021）</div>
+<div class="side">
+<div class="tw"><table><thead><tr><th colspan="3">📋 生产验证（1,101条·V2·策略19021）</th></tr></thead><tbody>
+<tr><td>✅ 正确·通过->CMA通过</td><td>995条</td><td>判白正确</td></tr>
+<tr><td>✅ 正确·不通过->CMA不通过</td><td>56条</td><td>正确拦截</td></tr>
+<tr><td>❌ 误判（PASS->UN_PASS）</td><td><strong style="color:#d97706">37条</strong></td><td>正常内容误拦截</td></tr>
+<tr><td>❌ 漏放（UN_PASS->PASS）</td><td><strong style="color:#dc2626">10条</strong></td><td>违规内容被放行</td></tr>
+<tr><td>⚠️ CMA失败</td><td>3条</td><td>模型异常</td></tr>
+</tbody><tfoot><tr><td colspan="2">✅ 验证一致性</td><td style="color:#059669">95.72%</td></tr></tfoot></table></div>
+<div class="tw"><table><thead><tr><th colspan="3">⬛ 边界黑样本（101条·V1·策略13017）</th></tr></thead><tbody>
+<tr><td>✅ CMA拦截成功</td><td>55条</td><td><span style="background:#fee2e2;padding:2px 8px;border-radius:4px;font-weight:700;color:#dc2626">54.46%</span></td></tr>
+<tr><td>❌ 漏放（通过）</td><td><strong style="color:#dc2626">46条</strong></td><td>45.54%</td></tr>
+</tbody><tfoot><tr><td colspan="2">⚠️ CMA拦截率</td><td style="color:#dc2626">54.46% ❌ 急需优化</td></tr></tfoot></table></div>
+</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📐 策略匹配度分析 · V2（策略19021）</div>
+<div class="strategy-grid">
+<div class="sc"><div class="st">🎯 策略逻辑</div><div class="sv">文本输出场景V2验证策略（19021）。输出内容与输入内容在语境、风险分布上有显著差异，需独立调优。当前策略对多领域输出（政治、经济、宗教、色情、体育等）覆盖不足。</div></div>
+<div class="sc"><div class="st">📊 核心关注指标</div><div class="sv">· 判白准确率：<strong style="color:#059669">99.00%</strong> ✅<br>· 覆盖率：<strong style="color:#059669">99.73%</strong> ✅<br>· 判黑准确率：<strong style="color:#dc2626">84.85%</strong> ⚠️<br>· 黑样本拦截率：<strong style="color:#dc2626">54.46%</strong> ❌<br>核心问题由漏放转为<strong style="color:#d97706">误判增加</strong></div></div>
+<div class="sc"><div class="st">📋 样本需求</div><div class="sv">生产1,101条（多样化输出内容）<br>黑样本101条（全部违规内容）<br>V2生产漏放降至10条，但误判升至37条；边界V2结果尚待补测</div></div>
+<div class="sc"><div class="st">⚠️ 风险评估</div><div class="sv">· 判黑准确率84.85%：<strong style="color:#d97706">中风险</strong><br>· 边界仍为V1 54.46%：<strong style="color:#dc2626">待补测</strong><br>· 整体风险：<strong style="color:#d97706">中高·需平衡误判与漏放</strong></div></div>
+</div>
+<div class="card"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+<div style="background:#f0fdf4;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#059669;margin-bottom:8px">⬜ 白样本（1,000条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7"><strong>正确率：</strong>995/1,005=99.00% ✅<br><strong>误判：</strong>37条（赌博赔率分析、成人影片信息等误拦）<br>白样本判读表现良好</p></div>
+<div style="background:#fef2f2;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#dc2626;margin-bottom:8px">⬛ 黑样本（101条->拦55条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7"><strong>拦截率仅54.46%</strong><br>漏放46条集中在：涉政敏感·色情·违禁品(毒品/赌博)·宗教争议·儿童色情等。<br>文本输出风险分布广，当前策略覆盖力严重不足</p></div>
+<div style="background:#fffbeb;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#d97706;margin-bottom:8px">🟡 V2后续方向</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7">V3优化重点：<br>1. 强化涉政敏感指令检测<br>2. 增加色情/违禁品关键词识别<br>3. 补充宗教争议/赌博等内容边界<br>4. 提升多语境综合判断能力<br>目标：综合准确率≥98%，并完成V2边界复测</p></div>
+</div></div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📈 迭代历程 · 文本输出（V1 → V2）</div>
+<div class="card"><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">生产数据</h4>
+<div class="chart-box" style="height:130px"><div class="chart-y"><span>100%</span><span>90%</span><span>80%</span></div><div class="chart-area" style="height:100px">
+<div class="chart-dot chart-dot-big" style="bottom:95%;left:45%;background:#d97706;border-color:#d97706"></div>
+<div class="chart-label" style="left:45%;color:#d97706;font-weight:600">V2 95.72%</div>
+</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V1 95.00% → V2 95.72%</p></div>
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">边界黑样本</h4>
+<div class="chart-box" style="height:130px"><div class="chart-y"><span>100%</span><span>50%</span><span>0%</span></div><div class="chart-area" style="height:100px">
+<div class="chart-dot chart-dot-big" style="bottom:54.5%;left:45%;background:#dc2626;border-color:#dc2626"></div>
+<div class="chart-label" style="left:45%;color:#dc2626;font-weight:600">V1 54.5%</div>
+</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V1首轮·亟需优化</p></div>
+</div></div>
+<!-- 四 洞察+计划 -->
+<div class="section-title">⚡ 四、综合洞察 &amp; 当前卡点</div>
+<div class="card">
+<div class="ms-card"><div class="msh" style="color:#dc2626">🟡 文本输出V2仍未达标（95.72%）</div><div class="msv">文本输出V2漏放已由47条降至10条，但误判由5条升至37条；综合准确率95.72%，仍低于98%上线目标。边界黑样本尚未完成V2复测。</div></div>
+<div class="ms-card"><div class="msh" style="color:#d97706">🟡 CMA平台失败率（0.26%~0.27%）</div><div class="msv">文本输入3条(0.26%)、文本输出3条(0.27%) CMA返回失败。线上每日10万级请求量下，日约260条异常。</div></div>
+<div class="ms-card"><div class="msh" style="color:#d97706">🟡 模型结果不一致·短期漂移</div><div class="msv">同一文本多次验证结果不一致（PASS/UN_PASS互变）。影响策略验证的可复现性和可信度。</div></div>
+<div class="ms-card"><div class="msh" style="color:#d97706">🟡 批量上传成功率低</div><div class="msv">文本输入验证时89条黑样本仅成功上传38条（43%），违规类型格式导致批量上传中断。</div></div>
+</div>
+
+</div>
+<div class="footer">
+<div class="footer">
+网易易盾 · 人工审核 · CMA转化进展 H2总览 · 小E 🤖 自动生成
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
