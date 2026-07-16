@@ -243,8 +243,8 @@
                 <div class="subtitle">Huya Video Review Daily Report</div>
             </div>
             <div class="header-right">
-                <div>数据周期: 2026-07-01 至 2026-07-14</div>
-                <div>报告生成: 2026-07-15 10:00:00</div>
+                <div>数据周期: 2026-07-01 至 2026-07-15</div>
+                <div>报告生成: 2026-07-16 10:00:00</div>
             </div>
         </div>
     </div>
@@ -255,27 +255,27 @@
         <div class="metrics-grid">
             <div class="metric-card blue">
                 <div class="label">累计实际审核量</div>
-                <div class="value blue">36,556 <span class="unit">条</span></div>
-                <div class="trend up"><span>↑</span> 7月累计14天</div>
+                <div class="value blue">39,229 <span class="unit">条</span></div>
+                <div class="trend up"><span>↑</span> 7月累计15天</div>
             </div>
             <div class="metric-card green">
                 <div class="label">累计转化后审核量</div>
-                <div class="value green">31,167 <span class="unit">条</span></div>
-                <div class="trend up"><span>↑</span> 7月累计14天</div>
+                <div class="value green">33,498 <span class="unit">条</span></div>
+                <div class="trend up"><span>↑</span> 7月累计15天</div>
             </div>
             <div class="metric-card purple">
                 <div class="label">日均人效(转化后)</div>
-                <div class="value purple">161 <span class="unit">条/人</span></div>
-                <div class="trend up"><span>↑</span> 7月在班总人力194人</div>
+                <div class="value purple">160 <span class="unit">条/人</span></div>
+                <div class="trend up"><span>↑</span> 7月在班总人力209人</div>
             </div>
             <div class="metric-card orange">
                 <div class="label">平均违规率</div>
-                <div class="value orange">9.77 <span class="unit">%</span></div>
+                <div class="value orange">9.66 <span class="unit">%</span></div>
                 <div class="trend down"><span>↓</span> 低于目标15%</div>
             </div>
             <div class="metric-card red">
                 <div class="label">平均排队时长</div>
-                <div class="value red">1.24 <span class="unit">分钟</span></div>
+                <div class="value red">1.39 <span class="unit">分钟</span></div>
                 <div class="trend down"><span>↓</span> 低于目标 2分钟</div>
             </div>
         </div>
@@ -378,26 +378,26 @@
 
     <script>
         // 数据
-        const dates = ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14"];
+        const dates = ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14","7.15"];
 
         // 6月 + 7月真实数据
-        const auditVolumes = [2196,2683,3036,2492,2749,2938,2751,2523,2274,2156,2580,2845,2602,2731];
-        const transformedVolumes = [1843,2263,2628,2118,2305,2496,2343,2139,1911,1843,2225,2435,2258,2360];
-        const queueTimes = [0.57,2.06,0.78,0.64,0.98,3.62,0.88,1.12,1.67,0.6,1.38,0.95,0.27,1.37];
+        const auditVolumes = [2196,2683,3036,2492,2749,2938,2751,2523,2274,2156,2580,2845,2602,2731,2673];
+        const transformedVolumes = [1843,2263,2628,2118,2305,2496,2343,2139,1911,1843,2225,2435,2258,2360,2331];
+        const queueTimes = [0.57,2.06,0.78,0.64,0.98,3.62,0.88,1.12,1.67,0.6,1.38,0.95,0.27,1.37,3.44];
 
-        // 7月人员排行(7.1-7.14累计)
-        const personNames = ["罗丹","曾坚城","梁智锋","江宜瑾","邵嘉飞","罗仪德","呙怡帆","昝瑜凡","吴桂耀","刘定乐","李明朗","王鸣"];
-        const personValues = [233.7,233.7,220.2,213.3,200.6,199.9,189.9,181.6,181.3,180.4,180.0,167.4];
+        // 7月人员排行(7.1-7.15累计)
+        const personNames = ["曾坚城","罗丹","江宜瑾","梁智锋","邵嘉飞","罗仪德","呙怡帆","吴桂耀","昝瑜凡","李明朗","刘定乐","王鸣"];
+        const personValues = [238.5,233.7,215.7,214.3,209.9,196.5,190.0,181.9,181.6,180.8,180.4,166.6];
 
-        // 7月24小时时段数据（7.1-7.14累计）
-        const hourlyData = [1274,1153,1153,907,923,836,952,878,1195,964,1193,2274,1803,1218,2010,2331,3022,2801,1765,1654,1368,1771,1699,1412];
+        // 7月24小时时段数据（7.1-7.15累计）
+        const hourlyData = [1400,1235,1207,982,1004,871,975,946,1285,1042,1251,2456,1908,1290,2159,2493,3184,2974,1880,1792,1534,1929,1872,1560];
 
         // 7月友商对比数据
-        const julyLabels = ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14"];
-        const yidunVolumes = [2196,2683,3036,2492,2749,2938,2751,2523,2274,2156,2580,2845,2602,2731];
-        const zhengtongVolumes = [13862,12245,11707,13113,13112,13838,13291,14675,15157,13943,13029,13104,12741,13218];
-        const yidunQueueTimes = [0.57,2.06,0.78,0.64,0.98,3.62,0.88,1.12,1.67,0.6,1.38,0.95,0.27,1.37];
-        const zhengtongQueueTimes = [1.86,1.72,0.79,0.8,1.52,2.68,1.56,2.25,2.18,1.58,2.21,2.14,0.71,2.38];
+        const julyLabels = ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14","7.15"];
+        const yidunVolumes = [2196,2683,3036,2492,2749,2938,2751,2523,2274,2156,2580,2845,2602,2731,2673];
+        const zhengtongVolumes = [13862,12245,11707,13113,13112,13838,13291,14675,15157,13943,13029,13104,12741,13218,13912];
+        const yidunQueueTimes = [0.57,2.06,0.78,0.64,0.98,3.62,0.88,1.12,1.67,0.6,1.38,0.95,0.27,1.37,3.44];
+        const zhengtongQueueTimes = [1.86,1.72,0.79,0.8,1.52,2.68,1.56,2.25,2.18,1.58,2.21,2.14,0.71,2.38,4.29];
 
         // Chart.js 全局配置
         Chart.defaults.color = '#6b7280';
@@ -718,10 +718,10 @@
         new Chart(document.getElementById('violationRateChart'), {
             type: 'line',
             data: {
-                labels: ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14"],
+                labels: ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14","7.15"],
                 datasets: [{
                     label: '每日违规率',
-                    data: [11.89,11.18,10.84,10.15,11.17,8.34,9.2,10.58,8.97,7.98,9.53,9.49,8.72,8.64],
+                    data: [11.89,11.18,10.84,10.15,11.17,8.34,9.2,10.58,8.97,7.98,9.53,9.49,8.72,8.64,8.27],
                     borderColor: '#ef4444',
                     backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderWidth: 2,
@@ -766,7 +766,7 @@
             data: {
                 labels: ['虎牙视频', '虎牙直播回放切片视频', '虎牙AI礼物特效视频'],
                 datasets: [{
-                    data: [35647,694,211],
+                    data: [38132,783,310],
                     backgroundColor: [
                         'rgba(139, 92, 246, 0.8)',
                         'rgba(16, 185, 129, 0.8)',
