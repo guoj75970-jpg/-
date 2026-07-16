@@ -672,14 +672,14 @@
 
         // === 7月数据图表 ===
 
-        // 7月每日产能趋势（目前仅1天，后续自动扩展）
+        // 7月每日产能趋势
         new Chart(document.getElementById('julyTrendChart'), {
             type: 'line',
             data: {
-                labels: ["7.1","7.2","7.3","7.4","7.5","7.6","7.7","7.8","7.9","7.10","7.11","7.12","7.13","7.14"],
+                labels: dates,
                 datasets: [{
                     label: '实际审核量',
-                    data: [2196,2683,3036,2492,2749,2938,2751,2523,2274,2156,2580,2845,2602,2731],
+                    data: auditVolumes,
                     borderColor: '#8b5cf6',
                     backgroundColor: 'rgba(139, 92, 246, 0.1)',
                     borderWidth: 2,
