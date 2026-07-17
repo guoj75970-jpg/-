@@ -78,11 +78,11 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 <body>
 <div class="header"><div class="header-content">
 <div class="header-left"><h1>CMA转化进展 · H2总览</h1><div class="subtitle">天工 · Skymusic · 任你购 — 业务全景 · 周度测试</div></div>
-<div class="header-right"><div>报告周度：7/13（周一）~ 7/17（周五）</div><div>更新：2026-07-15</div></div>
+<div class="header-right"><div>报告周度：7/13（周一）~ 7/17（周五）</div><div>更新：2026-07-17</div></div>
 </div></div>
 <div class="banner-wrap"><div class="banner-inner">
 <span style="font-size:24px">🎯</span>
-<span><strong>本周核心结论：</strong>Skywork-新业务-文本输入V10综合准确率99.73%、判白准确率100%、黑样本拦截率95.96%，<span style="color:#059669;font-weight:700">全部达标 ✅</span>。Skywork-新业务-文本输出V2综合准确率95.72%（漏放10条、误判37条），仍需继续优化。</span>
+<span><strong>本周核心结论：</strong>Skywork-新业务-文本输入V10综合准确率99.73%、判白准确率100%、黑样本拦截率95.96%，<span style="color:#059669;font-weight:700">全部达标 ✅</span>。文本输出已完成V3~V5验证，V4有效准确率98.26%但失败率5.81%，V5失败率降至0.18%，有效准确率97.09%，<span style="color:#d97706;font-weight:700">稳定性恢复但准确率仍未达标</span>。</span>
 </div></div>
 <div class="container">
 <!-- 一 -->
@@ -100,7 +100,7 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 </tr>
 <tr><td style="text-align:left">Skywork-新业务-文本输出</td><td>文本</td>
   <td><span class="tag tag-b">调试期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.20</td>
-  <td><span style="color:#d97706;font-weight:600">🟡 V2完成</span></td></tr>
+  <td><span style="color:#d97706;font-weight:600">🟡 V5验证中</span></td></tr>
 <tr><td style="text-align:left">Skywork-新业务-昵称业务</td><td>文本</td>
   <td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>7.20</td>
   <td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
@@ -146,7 +146,7 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
   <td><strong>3.5</strong></td>
 </tr></tfoot>
 </table></div>
-<div class="info-card"><span style="font-size:22px">💡</span><div class="text"><strong>全景小结：</strong>当前共<strong>11个CMA推进业务</strong>，按产品划分：<strong>天工 6个</strong>（文本输入V10通过·文本输出V1完成·其余4个待启动）、<strong>Skymusic 4个</strong>（全部待启动·预计8月启动）、<strong>任你购 1个</strong>（商品审核·9月攻坚）。全部上线后可缩减<strong>3.5人力</strong>（文本输入1.0+Skymusic国内文本0.5+任你购2.0）。</div></div>
+<div class="info-card"><span style="font-size:22px">💡</span><div class="text"><strong>全景小结：</strong>当前共<strong>11个CMA推进业务</strong>，按产品划分：<strong>天工 6个</strong>（文本输入V10通过·文本输出已验证至V5·其余4个待启动）、<strong>Skymusic 4个</strong>（全部待启动·预计8月启动）、<strong>任你购 1个</strong>（商品审核·9月攻坚）。全部上线后可缩减<strong>3.5人力</strong>（文本输入1.0+Skymusic国内文本0.5+任你购2.0）。</div></div>
 <!-- 二 -->
 <div class="section-title">💰 二、H2费用转化目标看板</div>
 <div class="card">
@@ -259,66 +259,70 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 </div></div>
 <!-- 业务2 -->
 <div class="info-card" style="margin-bottom:12px;margin-top:28px"><span style="font-size:24px">📤</span>
-<div class="text"><strong>业务2：Skywork-新业务-文本输出 · V2（策略19021）</strong><br>
-<span style="font-size:13px;color:#64748b">本周完成V2生产验证·生产样本1,101条（有效1,098条）；边界仍沿用V1黑样本101条</span></div></div>
+<div class="text"><strong>业务2：Skywork-新业务-文本输出 · V5（策略25016）</strong><br>
+<span style="font-size:13px;color:#64748b">本周连续完成V3、V4、V5生产验证·生产样本1,101条；当前以V5评估，边界仍沿用V1黑样本101条</span></div></div>
 
 <div class="ig">
-<div class="ic"><div class="il">综合准确率</div><div class="iv or">95.72%</div><div class="is">目标>=98% ❌</div></div>
-<div class="ic"><div class="il">判白准确率</div><div class="iv gr">99.00%</div><div class="is">995/1,005 ✅</div></div>
-<div class="ic"><div class="il">覆盖率</div><div class="iv bl">99.73%</div><div class="is">目标>=90% ✅</div></div>
-<div class="ic"><div class="il">判黑准确率</div><div class="iv or">84.85%</div><div class="is">56/66·较V1提升</div></div>
-<div class="ic"><div class="il">误判（错杀）</div><div class="iv tl">37条</div><div class="is">正常内容误拦截</div></div>
-<div class="ic"><div class="il">漏放</div><div class="iv ph">10条</div><div class="is">违规内容被放行</div></div>
+<div class="ic"><div class="il">有效准确率</div><div class="iv or">97.09%</div><div class="is">目标≥98.5% ❌</div></div>
+<div class="ic"><div class="il">判白准确率</div><div class="iv gr">99.70%</div><div class="is">1,008/1,011 ✅</div></div>
+<div class="ic"><div class="il">覆盖率</div><div class="iv bl">99.82%</div><div class="is">1,099/1,101 ✅</div></div>
+<div class="ic"><div class="il">判黑准确率</div><div class="iv or">67.05%</div><div class="is">59/88·仍偏低</div></div>
+<div class="ic"><div class="il">误判（错杀）</div><div class="iv tl">3条</div><div class="is">正常内容误拦截</div></div>
+<div class="ic"><div class="il">漏放</div><div class="iv or">29条</div><div class="is">违规内容被放行</div></div>
 </div>
-<div class="section-title" style="font-size:15px;margin-top:20px">📋 生产环境验证 · V2（策略19021）</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📋 生产环境验证 · V5（策略25016）</div>
 <div class="side">
-<div class="tw"><table><thead><tr><th colspan="3">📋 生产验证（1,101条·V2·策略19021）</th></tr></thead><tbody>
-<tr><td>✅ 正确·通过->CMA通过</td><td>995条</td><td>判白正确</td></tr>
-<tr><td>✅ 正确·不通过->CMA不通过</td><td>56条</td><td>正确拦截</td></tr>
-<tr><td>❌ 误判（PASS->UN_PASS）</td><td><strong style="color:#d97706">37条</strong></td><td>正常内容误拦截</td></tr>
-<tr><td>❌ 漏放（UN_PASS->PASS）</td><td><strong style="color:#dc2626">10条</strong></td><td>违规内容被放行</td></tr>
-<tr><td>⚠️ CMA失败</td><td>3条</td><td>模型异常</td></tr>
-</tbody><tfoot><tr><td colspan="2">✅ 验证一致性</td><td style="color:#059669">95.72%</td></tr></tfoot></table></div>
+<div class="tw"><table><thead><tr><th colspan="3">📋 生产验证（1,101条·V5·策略25016）</th></tr></thead><tbody>
+<tr><td>✅ 正确·通过→CMA通过</td><td>1,008条</td><td>判白正确</td></tr>
+<tr><td>✅ 正确·不通过→CMA不通过</td><td>59条</td><td>正确拦截</td></tr>
+<tr><td>❌ 误判（PASS→UN_PASS）</td><td><strong style="color:#d97706">3条</strong></td><td>正常内容误拦截</td></tr>
+<tr><td>❌ 漏放（UN_PASS→PASS）</td><td><strong style="color:#dc2626">29条</strong></td><td>违规内容被放行</td></tr>
+<tr><td>⚠️ CMA失败</td><td>2条</td><td>失败率0.18%</td></tr>
+</tbody><tfoot><tr><td colspan="2">有效判定准确率</td><td style="color:#d97706">97.09%</td></tr></tfoot></table></div>
 <div class="tw"><table><thead><tr><th colspan="3">⬛ 边界黑样本（101条·V1·策略13017）</th></tr></thead><tbody>
 <tr><td>✅ CMA拦截成功</td><td>55条</td><td><span style="background:#fee2e2;padding:2px 8px;border-radius:4px;font-weight:700;color:#dc2626">54.46%</span></td></tr>
 <tr><td>❌ 漏放（通过）</td><td><strong style="color:#dc2626">46条</strong></td><td>45.54%</td></tr>
-</tbody><tfoot><tr><td colspan="2">⚠️ CMA拦截率</td><td style="color:#dc2626">54.46% ❌ 急需优化</td></tr></tfoot></table></div>
+</tbody><tfoot><tr><td colspan="2">⚠️ 当前状态</td><td style="color:#dc2626">V5边界复测待完成</td></tr></tfoot></table></div>
 </div>
-<div class="section-title" style="font-size:15px;margin-top:20px">📐 策略匹配度分析 · V2（策略19021）</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📐 策略匹配度分析 · V5（策略25016）</div>
 <div class="strategy-grid">
-<div class="sc"><div class="st">🎯 策略逻辑</div><div class="sv">文本输出场景V2验证策略（19021）。输出内容与输入内容在语境、风险分布上有显著差异，需独立调优。当前策略对多领域输出（政治、经济、宗教、色情、体育等）覆盖不足。</div></div>
-<div class="sc"><div class="st">📊 核心关注指标</div><div class="sv">· 判白准确率：<strong style="color:#059669">99.00%</strong> ✅<br>· 覆盖率：<strong style="color:#059669">99.73%</strong> ✅<br>· 判黑准确率：<strong style="color:#dc2626">84.85%</strong> ⚠️<br>· 黑样本拦截率：<strong style="color:#dc2626">54.46%</strong> ❌<br>核心问题由漏放转为<strong style="color:#d97706">误判增加</strong></div></div>
-<div class="sc"><div class="st">📋 样本需求</div><div class="sv">生产1,101条（多样化输出内容）<br>黑样本101条（全部违规内容）<br>V2生产漏放降至10条，但误判升至37条；边界V2结果尚待补测</div></div>
-<div class="sc"><div class="st">⚠️ 风险评估</div><div class="sv">· 判黑准确率84.85%：<strong style="color:#d97706">中风险</strong><br>· 边界仍为V1 54.46%：<strong style="color:#dc2626">待补测</strong><br>· 整体风险：<strong style="color:#d97706">中高·需平衡误判与漏放</strong></div></div>
+<div class="sc"><div class="st">🎯 策略逻辑</div><div class="sv">V5采用Doubao 2.0轻量稳定方案：规则平铺、直接词命中、简单组合命中和少量明确放行词，降低长Prompt带来的执行失败。</div></div>
+<div class="sc"><div class="st">📊 核心关注指标</div><div class="sv">· 判白准确率：<strong style="color:#059669">99.70%</strong> ✅<br>· 覆盖率：<strong style="color:#059669">99.82%</strong> ✅<br>· 判黑准确率：<strong style="color:#dc2626">67.05%</strong> ❌<br>· 有效准确率：<strong style="color:#d97706">97.09%</strong> ❌<br>核心问题仍为<strong style="color:#dc2626">黑样本漏放</strong></div></div>
+<div class="sc"><div class="st">📋 版本对比</div><div class="sv">V3：98.08%·失败6条<br>V4：98.26%·失败64条<br>V5：97.09%·失败2条<br>V4准确率最高但链路失败严重；V5稳定性恢复，召回仍需提升。</div></div>
+<div class="sc"><div class="st">⚠️ 风险评估</div><div class="sv">· 漏放29条：<strong style="color:#dc2626">高风险</strong><br>· 失败率0.18%：<strong style="color:#059669">已恢复</strong><br>· 整体：<strong style="color:#d97706">暂不建议上线，继续细化Policy</strong></div></div>
 </div>
 <div class="card"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
-<div style="background:#f0fdf4;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#059669;margin-bottom:8px">⬜ 白样本（1,000条）</h5>
-<p style="font-size:13px;color:#475569;line-height:1.7"><strong>正确率：</strong>995/1,005=99.00% ✅<br><strong>误判：</strong>37条（赌博赔率分析、成人影片信息等误拦）<br>白样本判读表现良好</p></div>
-<div style="background:#fef2f2;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#dc2626;margin-bottom:8px">⬛ 黑样本（101条->拦55条）</h5>
-<p style="font-size:13px;color:#475569;line-height:1.7"><strong>拦截率仅54.46%</strong><br>漏放46条集中在：涉政敏感·色情·违禁品(毒品/赌博)·宗教争议·儿童色情等。<br>文本输出风险分布广，当前策略覆盖力严重不足</p></div>
-<div style="background:#fffbeb;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#d97706;margin-bottom:8px">🟡 V2后续方向</h5>
-<p style="font-size:13px;color:#475569;line-height:1.7">V3优化重点：<br>1. 强化涉政敏感指令检测<br>2. 增加色情/违禁品关键词识别<br>3. 补充宗教争议/赌博等内容边界<br>4. 提升多语境综合判断能力<br>目标：综合准确率≥98%，并完成V2边界复测</p></div>
+<div style="background:#f0fdf4;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#059669;margin-bottom:8px">⬜ 白样本（1,013条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7"><strong>有效判白：</strong>1,008/1,011=99.70% ✅<br><strong>误判：</strong>3条<br><strong>失败：</strong>2条<br>白样本准确率与链路稳定性均表现良好。</p></div>
+<div style="background:#fef2f2;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#dc2626;margin-bottom:8px">⬛ 黑样本（88条）</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7"><strong>拦截：</strong>59/88=67.05%<br><strong>漏放：</strong>29条<br>轻量化后黑样本召回下降，需补充高价值词表与二元组合规则。</p></div>
+<div style="background:#fffbeb;border-radius:8px;padding:16px"><h5 style="font-size:14px;color:#d97706;margin-bottom:8px">🟡 下一轮方向</h5>
+<p style="font-size:13px;color:#475569;line-height:1.7">1. 保持V5短结构，不再堆复杂推理<br>2. 按29条漏放补词与简单组合<br>3. 优先补领导人变体、涉台并列、色情组合、赌博预测等直接规则<br>4. 完成102条边界样本复测</p></div>
 </div></div>
-<div class="section-title" style="font-size:15px;margin-top:20px">📈 迭代历程 · 文本输出（V1 → V2）</div>
+<div class="section-title" style="font-size:15px;margin-top:20px">📈 迭代历程 · 文本输出（V1 → V5）</div>
 <div class="card"><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">生产数据</h4>
-<div class="chart-box" style="height:130px"><div class="chart-y"><span>100%</span><span>90%</span><span>80%</span></div><div class="chart-area" style="height:100px">
-<div class="chart-dot chart-dot-big" style="bottom:85%;left:22%;background:#94a3b8;border-color:#94a3b8"></div>
-<div class="chart-label" style="left:22%;color:#64748b;font-weight:600">V1 95.00%</div>
-<div class="chart-dot chart-dot-big" style="bottom:95%;left:72%;background:#d97706;border-color:#d97706"></div>
-<div class="chart-label" style="left:72%;color:#d97706;font-weight:600">V2 95.72%</div>
-</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V1 95.00% → V2 95.72%</p></div>
-<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">边界黑样本</h4>
-<div class="chart-box" style="height:130px"><div class="chart-y"><span>100%</span><span>50%</span><span>0%</span></div><div class="chart-area" style="height:100px">
-<div class="chart-dot chart-dot-big" style="bottom:54.5%;left:45%;background:#dc2626;border-color:#dc2626"></div>
-<div class="chart-label" style="left:45%;color:#dc2626;font-weight:600">V1 54.5%</div>
-</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V1首轮·亟需优化</p></div>
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">有效判定准确率</h4>
+<div class="chart-box" style="height:130px"><div class="chart-y"><span>100%</span><span>95%</span><span>90%</span></div><div class="chart-area" style="height:100px">
+<div class="chart-dot" style="bottom:52.6%;left:8%;background:#94a3b8"></div><div class="chart-label" style="left:8%">V1 95.26</div>
+<div class="chart-dot" style="bottom:57.2%;left:28%;background:#94a3b8"></div><div class="chart-label" style="left:28%">V2 95.72</div>
+<div class="chart-dot" style="bottom:80.8%;left:48%;background:#2563eb"></div><div class="chart-label" style="left:48%">V3 98.08</div>
+<div class="chart-dot chart-dot-big" style="bottom:82.6%;left:68%;background:#059669;border-color:#059669"></div><div class="chart-label" style="left:68%;color:#059669;font-weight:700">V4 98.26</div>
+<div class="chart-dot chart-dot-big" style="bottom:70.9%;left:88%;background:#d97706;border-color:#d97706"></div><div class="chart-label" style="left:88%;color:#d97706;font-weight:700">V5 97.09</div>
+</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V4达到98%但未达到98.5%上线线，且失败率5.81%</p></div>
+<div><h4 style="font-size:14px;color:#0f172a;margin-bottom:10px;text-align:center">策略失败率</h4>
+<div class="chart-box" style="height:130px"><div class="chart-y"><span>6%</span><span>3%</span><span>0%</span></div><div class="chart-area" style="height:100px">
+<div class="chart-dot" style="bottom:95.5%;left:8%;background:#059669"></div><div class="chart-label" style="left:8%">V1 0.27</div>
+<div class="chart-dot" style="bottom:95.5%;left:28%;background:#059669"></div><div class="chart-label" style="left:28%">V2 0.27</div>
+<div class="chart-dot" style="bottom:90.8%;left:48%;background:#2563eb"></div><div class="chart-label" style="left:48%">V3 0.54</div>
+<div class="chart-dot chart-dot-big" style="bottom:3.2%;left:68%;background:#dc2626;border-color:#dc2626"></div><div class="chart-label" style="left:68%;color:#dc2626;font-weight:700">V4 5.81</div>
+<div class="chart-dot chart-dot-big" style="bottom:97%;left:88%;background:#059669;border-color:#059669"></div><div class="chart-label" style="left:88%;color:#059669;font-weight:700">V5 0.18</div>
+</div></div><p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:4px">V5已解决V4长Prompt引发的高失败问题</p></div>
 </div></div>
 <!-- 四 洞察+计划 -->
 <div class="section-title">⚡ 四、综合洞察 &amp; 当前卡点</div>
 <div class="card">
-<div class="ms-card"><div class="msh" style="color:#dc2626">🟡 文本输出V2仍未达标（95.72%）</div><div class="msv">文本输出V2漏放已由47条降至10条，但误判由5条升至37条；综合准确率95.72%，仍低于98%上线目标。边界黑样本尚未完成V2复测。</div></div>
-<div class="ms-card"><div class="msh" style="color:#d97706">🟡 CMA平台失败率（0.26%~0.27%）</div><div class="msv">文本输入3条(0.26%)、文本输出3条(0.27%) CMA返回失败。线上每日10万级请求量下，日约260条异常。</div></div>
+<div class="ms-card"><div class="msh" style="color:#dc2626">🔴 文本输出V5仍未达标（97.09%）</div><div class="msv">V5误判仅3条，但漏放29条，判黑准确率67.05%。当前主要矛盾是轻量Prompt召回不足，应基于真实漏放补充直接词表与简单组合规则。</div></div>
+<div class="ms-card"><div class="msh" style="color:#d97706">🟡 准确率与稳定性尚未同时达标</div><div class="msv">V4有效准确率98.26%，但64条失败、失败率5.81%；V5失败降至2条、失败率0.18%，但准确率回落至97.09%。下一轮需保留V5短结构并提升判黑召回。</div></div>
 <div class="ms-card"><div class="msh" style="color:#d97706">🟡 模型结果不一致·短期漂移</div><div class="msv">同一文本多次验证结果不一致（PASS/UN_PASS互变）。影响策略验证的可复现性和可信度。</div></div>
 <div class="ms-card"><div class="msh" style="color:#d97706">🟡 批量上传成功率低</div><div class="msv">文本输入验证时89条黑样本仅成功上传38条（43%），违规类型格式导致批量上传中断。</div></div>
 </div>
