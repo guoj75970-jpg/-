@@ -1,0 +1,156 @@
+{
+  "day": "7.21",
+  "metrics": {
+    "actual": 2391,
+    "trans": 2037,
+    "passed": 1882,
+    "risk": 345,
+    "bad": 164,
+    "viol": 6.86,
+    "queue": 0.63,
+    "queue_n": 1950,
+    "queue_sum": 1232.6333333333332,
+    "mult": 1.86,
+    "people": 13,
+    "percap": 156
+  },
+  "persons": [
+    {
+      "name": "罗丹",
+      "audit": 380,
+      "trans": 311,
+      "passed": 352,
+      "bad": 16,
+      "viol": 4.21,
+      "queue": 0.09,
+      "mult": 1.27
+    },
+    {
+      "name": "曾坚城",
+      "audit": 313,
+      "trans": 268,
+      "passed": 234,
+      "bad": 16,
+      "viol": 5.11,
+      "queue": 0.1,
+      "mult": 2.09
+    },
+    {
+      "name": "李明朗",
+      "audit": 253,
+      "trans": 211,
+      "passed": 181,
+      "bad": 25,
+      "viol": 9.88,
+      "queue": 0.28,
+      "mult": 1.62
+    },
+    {
+      "name": "吴桂耀",
+      "audit": 230,
+      "trans": 192,
+      "passed": 169,
+      "bad": 17,
+      "viol": 7.39,
+      "queue": 0.56,
+      "mult": 1.89
+    },
+    {
+      "name": "呙怡帆",
+      "audit": 229,
+      "trans": 190,
+      "passed": 156,
+      "bad": 13,
+      "viol": 5.68,
+      "queue": 0.05,
+      "mult": 2.22
+    },
+    {
+      "name": "罗仪德",
+      "audit": 202,
+      "trans": 194,
+      "passed": 166,
+      "bad": 19,
+      "viol": 9.41,
+      "queue": 2.32,
+      "mult": 2.28
+    },
+    {
+      "name": "罗志洋",
+      "audit": 201,
+      "trans": 166,
+      "passed": 142,
+      "bad": 13,
+      "viol": 6.47,
+      "queue": 0.05,
+      "mult": 2.98
+    },
+    {
+      "name": "江宜瑾",
+      "audit": 191,
+      "trans": 160,
+      "passed": 173,
+      "bad": 7,
+      "viol": 3.66,
+      "queue": 1.15,
+      "mult": 1.04
+    },
+    {
+      "name": "梁智锋",
+      "audit": 172,
+      "trans": 155,
+      "passed": 130,
+      "bad": 18,
+      "viol": 10.47,
+      "queue": 1.96,
+      "mult": 1.91
+    },
+    {
+      "name": "黄金宝",
+      "audit": 116,
+      "trans": 99,
+      "passed": 98,
+      "bad": 5,
+      "viol": 4.31,
+      "queue": 1.02,
+      "mult": 2.02
+    },
+    {
+      "name": "王鸣",
+      "audit": 92,
+      "trans": 76,
+      "passed": 73,
+      "bad": 13,
+      "viol": 14.13,
+      "queue": 1.35,
+      "mult": 1.2
+    },
+    {
+      "name": "杨志伟",
+      "audit": 7,
+      "trans": 5,
+      "passed": 5,
+      "bad": 1,
+      "viol": 14.29,
+      "queue": 2.07,
+      "mult": 0.27
+    },
+    {
+      "name": "梁健锋",
+      "audit": 5,
+      "trans": 3,
+      "passed": 3,
+      "bad": 1,
+      "viol": 20.0,
+      "queue": 0.01,
+      "mult": 2.73
+    }
+  ],
+  "apps": {
+    "虎牙视频": 2261,
+    "虎牙AI礼物特效视频": 85,
+    "虎牙直播回放切片视频": 45
+  },
+  "other_apps": {},
+  "queue_excluded_records": 441
+}
