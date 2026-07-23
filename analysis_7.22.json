@@ -1,0 +1,126 @@
+{
+  "day": "7.22",
+  "metrics": {
+    "actual": 2148,
+    "trans": 1864,
+    "passed": 1739,
+    "risk": 252,
+    "bad": 157,
+    "viol": 7.31,
+    "queue": 0.62,
+    "queue_n": 1747,
+    "queue_sum": 1085.9833333333333,
+    "mult": 1.69,
+    "people": 10,
+    "percap": 186
+  },
+  "persons": [
+    {
+      "name": "邵嘉飞",
+      "audit": 344,
+      "trans": 297,
+      "passed": 321,
+      "bad": 14,
+      "viol": 4.07,
+      "queue": 0.21,
+      "mult": 1.25
+    },
+    {
+      "name": "江宜瑾",
+      "audit": 310,
+      "trans": 286,
+      "passed": 281,
+      "bad": 15,
+      "viol": 4.84,
+      "queue": 1.74,
+      "mult": 0.88
+    },
+    {
+      "name": "曾坚城",
+      "audit": 280,
+      "trans": 247,
+      "passed": 215,
+      "bad": 18,
+      "viol": 6.43,
+      "queue": 0.22,
+      "mult": 1.91
+    },
+    {
+      "name": "吴桂耀",
+      "audit": 265,
+      "trans": 217,
+      "passed": 191,
+      "bad": 21,
+      "viol": 7.92,
+      "queue": 0.13,
+      "mult": 1.81
+    },
+    {
+      "name": "黄金宝",
+      "audit": 261,
+      "trans": 243,
+      "passed": 210,
+      "bad": 12,
+      "viol": 4.6,
+      "queue": 0.87,
+      "mult": 1.73
+    },
+    {
+      "name": "王鸣",
+      "audit": 252,
+      "trans": 214,
+      "passed": 193,
+      "bad": 30,
+      "viol": 11.9,
+      "queue": 1.29,
+      "mult": 1.33
+    },
+    {
+      "name": "杨志伟",
+      "audit": 191,
+      "trans": 158,
+      "passed": 147,
+      "bad": 23,
+      "viol": 12.04,
+      "queue": 0.09,
+      "mult": 2.14
+    },
+    {
+      "name": "叶健焯",
+      "audit": 173,
+      "trans": 139,
+      "passed": 133,
+      "bad": 15,
+      "viol": 8.67,
+      "queue": 0.09,
+      "mult": 3.15
+    },
+    {
+      "name": "杨文杰",
+      "audit": 40,
+      "trans": 33,
+      "passed": 23,
+      "bad": 5,
+      "viol": 12.5,
+      "queue": 0.37,
+      "mult": 3.35
+    },
+    {
+      "name": "谢伟东",
+      "audit": 32,
+      "trans": 24,
+      "passed": 25,
+      "bad": 4,
+      "viol": 12.5,
+      "queue": NaN,
+      "mult": 0.68
+    }
+  ],
+  "apps": {
+    "虎牙视频": 2032,
+    "虎牙AI礼物特效视频": 67,
+    "虎牙直播回放切片视频": 49
+  },
+  "other_apps": {},
+  "queue_excluded_records": 400
+}
