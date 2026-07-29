@@ -457,7 +457,9 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <div class="section-title">⚡ 四、综合洞察 &amp; 当前卡点</div>
 <div class="card">
 <div class="ms-card"><div class="msh" style="color:#059669">🟢 普通文本V5准确率99.03%，目标达成</div><div class="msv">1,239条样本中有效1,236条，正确1,224条；覆盖率99.76%，错误12条、失败3条，较V4错误量下降29.41%，可进入上线准备。</div></div>
-<div class="ms-card"><div class="msh" style="color:#d97706">🟡 普通文本残余错题转为上线观察项</div><div class="msv">重点监控敏感事件、OCR主权表述、性隐私和商业文档结构漏放；误杀844、846、872与当前规则存在标签冲突，建议先复核基准再继续调Prompt。</div></div>
+<div class="ms-card"><div class="msh" style="color:#2563eb">🔵 普通文本残余问题并非以Prompt缺失为主</div><div class="msv">V5的12条误判与漏放多数已有明确规则，主要受超长文本注意力衰减、OCR断行与中英文混排、双栏错序、表格/列表层级继承及跨段组合识别局限影响。继续堆叠Prompt的边际收益有限，并可能造成新的误杀或漏放。</div></div>
+<div class="ms-card"><div class="msh" style="color:#d97706">🟡 3条样本存在标签与规则边界差异</div><div class="msv">备注844、846、872要求通过，但文本包含对现实中国、国家机关或社会主义国有资产的尖锐负面评价。需统一“具体问题批评可通过”与“现实制度整体攻击不通过”的边界，再决定是否继续调优。</div></div>
+<div class="ms-card"><div class="msh" style="color:#7c3aed">🟣 下一阶段应转向策略链路优化</div><div class="msv">建议采用文本归一化与OCR版面还原、长文本分段扫描、重大敏感与主权规则前置、表格结构化解析、失败自动重试和固定回归集。V5已接近当前Prompt能力上限，后续重点应从“扩写Prompt”转向“预处理+分段审核+规则前置+标签统一”。</div></div>
 <div class="ms-card"><div class="msh" style="color:#059669">🟢 文本输出V12生产验证达标（99.64%）</div><div class="msv">有效样本1,100条，正确1,096条；判白准确率99.90%、判黑准确率95.71%、覆盖率99.91%，均达到当前上线指标。</div></div>
 <div class="ms-card"><div class="msh" style="color:#059669">🟢 V8边界样本验证达标（96.04%）</div><div class="msv">101条边界样本全部返回有效结果，判白36/37、判黑61/64，整体正确97条，CMA失败0条。</div></div>
 <div class="ms-card"><div class="msh" style="color:#059669">🟢 昵称业务V2验证达标（100%）</div><div class="msv">82条昵称生产样本全部返回有效结果，正确82条，误判0条、漏放0条、CMA失败0条，可进入上线准备。</div></div>
