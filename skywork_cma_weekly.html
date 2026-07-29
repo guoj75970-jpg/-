@@ -456,15 +456,10 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <!-- 四 洞察 -->
 <div class="section-title">⚡ 四、综合洞察 &amp; 当前卡点</div>
 <div class="card">
-<div class="ms-card"><div class="msh" style="color:#059669">🟢 普通文本V5准确率99.03%，目标达成</div><div class="msv">1,239条样本中有效1,236条，正确1,224条；覆盖率99.76%，错误12条、失败3条，较V4错误量下降29.41%，可进入上线准备。</div></div>
-<div class="ms-card"><div class="msh" style="color:#2563eb">🔵 普通文本残余问题并非以Prompt缺失为主</div><div class="msv">V5的12条误判与漏放多数已有明确规则，主要受超长文本注意力衰减、OCR断行与中英文混排、双栏错序、表格/列表层级继承及跨段组合识别局限影响。继续堆叠Prompt的边际收益有限，并可能造成新的误杀或漏放。</div></div>
-<div class="ms-card"><div class="msh" style="color:#d97706">🟡 3条样本存在标签与规则边界差异</div><div class="msv">备注844、846、872要求通过，但文本包含对现实中国、国家机关或社会主义国有资产的尖锐负面评价。需统一“具体问题批评可通过”与“现实制度整体攻击不通过”的边界，再决定是否继续调优。</div></div>
-<div class="ms-card"><div class="msh" style="color:#7c3aed">🟣 下一阶段应转向策略链路优化</div><div class="msv">建议采用文本归一化与OCR版面还原、长文本分段扫描、重大敏感与主权规则前置、表格结构化解析、失败自动重试和固定回归集。V5已接近当前Prompt能力上限，后续重点应从“扩写Prompt”转向“预处理+分段审核+规则前置+标签统一”。</div></div>
-<div class="ms-card"><div class="msh" style="color:#059669">🟢 文本输出V12生产验证达标（99.64%）</div><div class="msv">有效样本1,100条，正确1,096条；判白准确率99.90%、判黑准确率95.71%、覆盖率99.91%，均达到当前上线指标。</div></div>
-<div class="ms-card"><div class="msh" style="color:#059669">🟢 V8边界样本验证达标（96.04%）</div><div class="msv">101条边界样本全部返回有效结果，判白36/37、判黑61/64，整体正确97条，CMA失败0条。</div></div>
-<div class="ms-card"><div class="msh" style="color:#059669">🟢 昵称业务V2验证达标（100%）</div><div class="msv">82条昵称生产样本全部返回有效结果，正确82条，误判0条、漏放0条、CMA失败0条，可进入上线准备。</div></div>
-<div class="ms-card"><div class="msh" style="color:#d97706">🟡 残余错题需作为上线观察项</div><div class="msv">生产仍有错杀1条、漏放3条；边界仍有错杀1条、漏放3条。当前不影响达标结论，但建议纳入上线后的定向监控与回归样本。</div></div>
-<div class="ms-card"><div class="msh" style="color:#d97706">🟡 普通文本链路有3条失败</div><div class="msv">V5失败3条，失败率0.24%，备注123、256、750，已按统一口径从准确率分子和分母中剔除；需继续观察线上稳定性。</div></div>
+<div class="ms-card"><div class="msh" style="color:#2563eb">📝 业务1 · Skywork-新业务-文本输入（V10）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.73%，判白准确率100%，覆盖率99.47%；边界黑样本拦截率95.96%，整体达标。<br><strong>局限：</strong>生产仍有错杀2条、漏放1条、失败3条，边界黑样本仍漏放4条；对涉政组合语义和模糊边界的稳定识别仍有限。<br><strong>困难：</strong>需要同时保证高判白覆盖和高黑样本召回，规则收紧容易增加正常内容误拦，放宽又可能造成组合语义漏放。<br><strong>建议：</strong>保持V10主策略不大改，将生产1条漏放和边界4条漏放纳入固定回归集；对失败样本增加自动重试，并持续监控短期结果漂移。</div></div>
+<div class="ms-card"><div class="msh" style="color:#2563eb">📤 业务2 · Skywork-新业务-文本输出（生产V12 / 边界V8）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.64%、覆盖率99.91%，边界准确率96.04%，两套样本库均达标。<br><strong>局限：</strong>生产和边界各残留错杀1条、漏放3条，生产另有失败1条；边界场景中的隐晦表达和组合风险仍是主要短板。<br><strong>困难：</strong>生产样本偏向稳定放行，边界样本强调高风险召回，两套目标存在天然拉扯，继续增加规则可能破坏已经达标的判白能力。<br><strong>建议：</strong>保留V12/V8作为上线版本，不再大幅改写Prompt；将8条残余错题分生产、边界两组回归，并对失败链路和上线后漏放率做单独监控。</div></div>
+<div class="ms-card"><div class="msh" style="color:#2563eb">🏷️ 业务3 · Skywork-新业务-昵称业务（V2）</div><div class="msv"><strong>结果：</strong>82条样本全部有效，准确率、判白准确率、判黑准确率和覆盖率均为100%，当前达标。<br><strong>局限：</strong>样本总量较小，黑样本仅1条，100%结果尚不能充分代表复杂昵称、谐音变体、拆字缩写和中英文混合昵称的真实线上表现。<br><strong>困难：</strong>昵称文本极短、上下文缺失，同一字符可能同时具有普通含义和敏感映射，容易在误杀和漏放之间波动。<br><strong>建议：</strong>上线前补充昵称黑样本和边界变体集，重点覆盖谐音、拼音、缩写、拆字、符号插入及中英文混排；上线后按周抽样复核。</div></div>
+<div class="ms-card"><div class="msh" style="color:#2563eb">📄 业务4 · Skywork-普通文本（长文本V5）</div><div class="msv"><strong>结果：</strong>全量1,239条，有效1,236条，准确率99.03%、覆盖率99.76%，错误12条、失败3条，达到99%目标。<br><strong>局限：</strong>残余问题多数不是Prompt规则缺失，而是超长文本注意力衰减、OCR断行与双栏错序、中英文混排、表格/列表层级继承和跨段组合识别能力有限。<br><strong>困难：</strong>单篇近万字内容中，局部风险句容易被党建、论文、商业报告等整体安全语境覆盖；反过来也可能因一句负面表述忽略全文学术或虚构属性。备注844、846、872还存在标签与规则边界差异。<br><strong>建议：</strong>停止大幅堆叠Prompt，转向文本归一化、OCR版面还原、长文本分段扫描、重大敏感与主权规则前置、表格结构化解析、失败自动重试和固定回归集；先统一标签边界再决定是否继续调优。</div></div>
 </div>
 
 </div>
