@@ -1,0 +1,127 @@
+{
+  "day": "7.28",
+  "metrics": {
+    "actual": 2128,
+    "trans": 1899,
+    "passed": 1712,
+    "risk": 305,
+    "bad": 111,
+    "viol": 5.22,
+    "queue": 1.09,
+    "queue_n": 2128,
+    "queue_sum": 2328.133333333333,
+    "mult": 1.91,
+    "people": 10,
+    "percap": 189
+  },
+  "persons": [
+    {
+      "name": "梁智锋",
+      "audit": 382,
+      "trans": 360,
+      "passed": 336,
+      "bad": 20,
+      "viol": 5.24,
+      "queue": 1.42,
+      "mult": 1.49
+    },
+    {
+      "name": "罗仪德",
+      "audit": 328,
+      "trans": 317,
+      "passed": 272,
+      "bad": 17,
+      "viol": 5.18,
+      "queue": 0.97,
+      "mult": 2.17
+    },
+    {
+      "name": "罗丹",
+      "audit": 256,
+      "trans": 221,
+      "passed": 221,
+      "bad": 20,
+      "viol": 7.81,
+      "queue": 0.1,
+      "mult": 1.73
+    },
+    {
+      "name": "吴桂耀",
+      "audit": 242,
+      "trans": 208,
+      "passed": 177,
+      "bad": 11,
+      "viol": 4.55,
+      "queue": 2.9,
+      "mult": 1.78
+    },
+    {
+      "name": "呙怡帆",
+      "audit": 235,
+      "trans": 204,
+      "passed": 179,
+      "bad": 5,
+      "viol": 2.13,
+      "queue": 0.31,
+      "mult": 2.09
+    },
+    {
+      "name": "曾坚城",
+      "audit": 233,
+      "trans": 200,
+      "passed": 174,
+      "bad": 12,
+      "viol": 5.15,
+      "queue": 0.48,
+      "mult": 1.69
+    },
+    {
+      "name": "刘定乐",
+      "audit": 230,
+      "trans": 196,
+      "passed": 190,
+      "bad": 10,
+      "viol": 4.35,
+      "queue": 1.8,
+      "mult": 2.36
+    },
+    {
+      "name": "李明朗",
+      "audit": 168,
+      "trans": 144,
+      "passed": 118,
+      "bad": 16,
+      "viol": 9.52,
+      "queue": 0.6,
+      "mult": 2.49
+    },
+    {
+      "name": "杨国铭",
+      "audit": 45,
+      "trans": 37,
+      "passed": 40,
+      "bad": 0,
+      "viol": 0.0,
+      "queue": 0.87,
+      "mult": 0.85
+    },
+    {
+      "name": "梁健锋",
+      "audit": 9,
+      "trans": 8,
+      "passed": 5,
+      "bad": 0,
+      "viol": 0.0,
+      "queue": 0.02,
+      "mult": 2.39
+    }
+  ],
+  "apps": {
+    "虎牙视频": 1962,
+    "虎牙直播回放切片视频": 93,
+    "虎牙AI礼物特效视频": 73
+  },
+  "other_apps": {},
+  "queue_excluded_records": 0,
+  "report": "C:\\Users\\guojing17\\.easyclaw\\workspace\\虎牙数据看板\\虎牙视频审核日报-2026-07-28.txt"
+}
