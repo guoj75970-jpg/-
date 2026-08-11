@@ -82,7 +82,7 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 </div></div>
 <div class="banner-wrap"><div class="banner-inner">
 <span style="font-size:24px">🎯</span>
-<span><strong>本周核心结论：</strong>Skymusic国外歌曲评论V2（策略23029）完成二次验证，1,034条样本中有效1,031条、正确1,029条，有效准确率<strong>99.81%</strong>、覆盖率<strong>99.71%</strong>，错杀1条、漏放1条、失败3条，<span style="color:#059669;font-weight:700">达到98.5%上线要求，可进入上线准备 🟢</span>。剩余2条错误为同一标准化文本对应相反生产标签，需统一标签口径，不建议继续堆叠Prompt。</span>
+<span><strong>本周核心结论：</strong>Skymusic国外歌曲评论V2（策略23029）完成二次验证，1,034条样本中有效1,031条、正确1,029条，有效准确率<strong>99.81%</strong>、覆盖率<strong>99.71%</strong>，错杀1条、漏放1条、失败3条，<span style="color:#059669;font-weight:700">达到98.5%上线要求，当前进入优化期 🟢</span>。剩余2条错误为同一标准化文本对应相反生产标签，需统一标签口径，不建议继续堆叠Prompt。</span>
 </div></div>
 <div class="container">
 <!-- 一 -->
@@ -126,7 +126,7 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 <tr style="background:#fffbeb"><td style="text-align:left">Skymusic-国内-音乐标题</td><td>文本</td><td><span class="tag tag-b">验证期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#d97706;font-weight:600">🟡 1,084条样本就绪</span></td></tr>
 <tr><td style="text-align:left">Skymusic-国内-昵称</td><td>文本</td><td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
 <tr><td style="text-align:left">Skymusic-国内图片</td><td>图片</td><td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.31</td><td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
-<tr style="background:#f0fdf4"><td style="text-align:left">Skymusic-国外-歌曲评论</td><td>文本</td><td><span class="tag tag-y">上线准备</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#059669;font-weight:600">🟢 V2通过</span></td></tr>
+<tr style="background:#f0fdf4"><td style="text-align:left">Skymusic-国外-歌曲评论</td><td>文本</td><td><span class="tag tag-y">优化期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#059669;font-weight:600">🟢 V2通过</span></td></tr>
 <tr style="background:#f0fdf4"><td style="text-align:left">Skymusic-国外-歌词歌曲</td><td>文本</td><td><span class="tag tag-y">优化期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#059669;font-weight:600">🟢 V2通过</span></td></tr>
 <tr style="background:#fffbeb"><td style="text-align:left">Skymusic-国外-昵称</td><td>文本</td><td><span class="tag tag-b">验证期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.20</td><td><span style="color:#d97706;font-weight:600">🟡 1,024条样本就绪</span></td></tr>
 <tr><td style="text-align:left">Skymusic-国外图片</td><td>图片</td><td><span class="tag tag-g2">启动期</span></td><td>准确率98.5%+覆盖率90%</td><td>8.31</td><td><span style="color:#94a3b8;font-weight:600">⚪ 待启动</span></td></tr>
@@ -207,13 +207,13 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <tr><td>⬛ 黑样本总量</td><td>28条</td><td>全量有效</td></tr>
 <tr><td>⬛ 黑样本正确拦截</td><td>27/28</td><td>96.43%</td></tr>
 <tr><td>链路覆盖</td><td>1,031/1,034</td><td>99.71%</td></tr>
-</tbody><tfoot><tr><td colspan="2">当前状态</td><td style="color:#059669">V2通过，可进入上线准备</td></tr></tfoot></table></div>
+</tbody><tfoot><tr><td colspan="2">当前状态</td><td style="color:#059669">V2通过，当前进入优化期</td></tr></tfoot></table></div>
 </div>
 <div class="strategy-grid">
 <div class="sc"><div class="st">🎯 本轮结论</div><div class="sv">V2有效准确率99.81%、覆盖率99.71%，判白与判黑指标同步提升，已达到上线要求。</div></div>
 <div class="sc"><div class="st">⚠️ 残余问题</div><div class="sv">仅余错杀1条、漏放1条，且两条是标准化后完全相同的评论，对应生产标签一白一黑。</div></div>
 <div class="sc"><div class="st">📊 标签风险</div><div class="sv">备注123与861仅相差一个空格，无法通过Prompt同时满足相反标签；应先统一生产集标注口径。</div></div>
-<div class="sc"><div class="st">✅ 下一步</div><div class="sv">保留V2作为上线版本，不再大幅改写Prompt；统一冲突标签，并对3条失败增加自动重试和上线监控。</div></div>
+<div class="sc"><div class="st">✅ 下一步</div><div class="sv">保留V2作为当前优化版本，不再大幅改写Prompt；统一冲突标签，并对3条失败增加自动重试和后续监控。</div></div>
 </div>
 
 <div class="info-card" style="margin-bottom:12px;margin-top:28px"><span style="font-size:24px">🧪</span>
@@ -570,7 +570,7 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <!-- 四 洞察 -->
 <div class="section-title">⚡ 四、综合洞察 &amp; 当前卡点</div>
 <div class="card">
-<div class="ms-card"><div class="msh" style="color:#7c3aed">💬 本周新增 · Skymusic国外歌曲评论（V2）</div><div class="msv"><strong>结果：</strong>有效准确率99.81%、覆盖率99.71%，错杀1条、漏放1条、失败3条，达到上线要求，可进入上线准备。<br><strong>残余问题：</strong>备注123与861标准化后为同一评论，仅相差一个空格，但生产标签一白一黑，属于标签冲突，不宜继续通过堆叠Prompt处理。<br><strong>建议：</strong>保留V2（策略23029）作为上线版本，统一冲突标签；对失败备注165、483、836增加自动重试，并持续监控上线后的误杀率、漏放率和结果漂移。</div></div>
+<div class="ms-card"><div class="msh" style="color:#7c3aed">💬 本周新增 · Skymusic国外歌曲评论（V2）</div><div class="msv"><strong>结果：</strong>有效准确率99.81%、覆盖率99.71%，错杀1条、漏放1条、失败3条，达到上线要求，当前进入优化期。<br><strong>残余问题：</strong>备注123与861标准化后为同一评论，仅相差一个空格，但生产标签一白一黑，属于标签冲突，不宜继续通过堆叠Prompt处理。<br><strong>建议：</strong>保留V2（策略23029）作为当前优化版本，统一冲突标签；对失败备注165、483、836增加自动重试，并持续监控误杀率、漏放率和结果漂移。</div></div>
 <div class="ms-card"><div class="msh" style="color:#d97706">🖼️ 本周新增 · 图片输入及音乐业务样本</div><div class="msv"><strong>结果：</strong>5项业务样本库已就绪，其中图片输入清理后保留1,082条有效链接。<br><strong>卡点：</strong>目录中暂无对应策略结果导出，不能计算准确率；图片输入最终样本全部为白样本，无法评估漏放。<br><strong>建议：</strong>先补充图片黑样本并跑首轮策略，其他4项按国内歌曲评论、Prompt、音乐标题、国外昵称顺序完成结果导出。</div></div>
 <div class="ms-card"><div class="msh" style="color:#2563eb">📝 业务1 · Skywork-新业务-文本输入（V10）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.73%，判白准确率100%，覆盖率99.47%；边界黑样本拦截率95.96%，整体达标。<br><strong>局限：</strong>生产仍有错杀2条、漏放1条、失败3条，边界黑样本仍漏放4条；对涉政组合语义和模糊边界的稳定识别仍有限。<br><strong>困难：</strong>需要同时保证高判白覆盖和高黑样本召回，规则收紧容易增加正常内容误拦，放宽又可能造成组合语义漏放。<br><strong>建议：</strong>保持V10主策略不大改，将生产1条漏放和边界4条漏放纳入固定回归集；对失败样本增加自动重试，并持续监控短期结果漂移。</div></div>
 <div class="ms-card"><div class="msh" style="color:#2563eb">📤 业务2 · Skywork-新业务-文本输出（生产V12 / 边界V8）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.64%、覆盖率99.91%，边界准确率96.04%，两套样本库均达标。<br><strong>局限：</strong>生产和边界各残留错杀1条、漏放3条，生产另有失败1条；边界场景中的隐晦表达和组合风险仍是主要短板。<br><strong>困难：</strong>生产样本偏向稳定放行，边界样本强调高风险召回，两套目标存在天然拉扯，继续增加规则可能破坏已经达标的判白能力。<br><strong>建议：</strong>保留V12/V8作为上线版本，不再大幅改写Prompt；将8条残余错题分生产、边界两组回归，并对失败链路和上线后漏放率做单独监控。</div></div>
