@@ -70,15 +70,23 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 .ms-card .msh{font-size:14px;font-weight:600;margin-bottom:6px}
 .ms-card .msv{font-size:13px;color:#64748b;line-height:1.6}
 .plan-prio{display:inline-block;width:36px;height:24px;border-radius:4px;color:#fff;font-size:12px;font-weight:700;line-height:24px;text-align:center}
+.online-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+.online-card{background:#fff;border-radius:12px;border:1px solid #e8ecf1;padding:18px 16px;min-height:152px}
+.online-card.ready{border-top:4px solid #059669}.online-card.pending{border-top:4px solid #cbd5e1;background:#f8fafc}
+.online-card .on{font-size:13px;font-weight:700;color:#0f172a;margin-bottom:10px;line-height:1.45}
+.online-card .ov{font-size:26px;font-weight:800;color:#059669}.online-card.pending .ov{font-size:20px;color:#94a3b8;margin-top:20px}
+.online-card .os{font-size:11px;color:#64748b;margin-top:5px;line-height:1.55}
+.online-note{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:13px 18px;font-size:13px;color:#166534;line-height:1.7;margin-bottom:18px}
+.dual-label{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-right:6px}.dual-test{background:#dbeafe;color:#1d4ed8}.dual-online{background:#dcfce7;color:#15803d}
 .footer{text-align:center;margin-top:50px;padding:24px 0;font-size:13px;color:#94a3b8;border-top:1px solid #e2e8f0}
-@media(max-width:1200px){.side,.strategy-grid{grid-template-columns:1fr}.ig{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){.strategy-grid,.ig{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}}
+@media(max-width:1200px){.side,.strategy-grid{grid-template-columns:1fr}.ig,.online-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.strategy-grid,.ig,.online-grid{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="header"><div class="header-content">
-<div class="header-left"><h1>CMA转化进展 · H2总览</h1><div class="subtitle">天工 · Skymusic · 任你购 — 业务全景 · 周度测试</div></div>
-<div class="header-right"><div>报告周期：8/3（周一）~ 8/13（周四）</div><div>更新：2026-08-13 · 数据截至8/13</div></div>
+<div class="header-left"><h1>CMA转化进展 · H2总览</h1><div class="subtitle">天工 · Skymusic · 任你购 — 测试验证与上线转化双维度</div></div>
+<div class="header-right"><div>测试验证：截至8/13　上线转化：8/18~8/24</div><div>更新：2026-08-25 · 上线数据截至8/24</div></div>
 </div></div>
 <div class="banner-wrap"><div class="banner-inner">
 <span style="font-size:24px">🎯</span>
@@ -145,7 +153,25 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 </table></div>
 <div class="info-card"><span style="font-size:22px">💡</span><div class="text"><strong>全景小结：</strong>根据最新业务范围，已从清单删除<strong>Skymusic-国内-歌词歌曲、Skymusic-国内图片、Skymusic-国外图片</strong>，当前共<strong>14个CMA推进业务</strong>。除任你购尚未开始外，其余<strong>13项均已达标并进入优化期</strong>。预估人力合计仍为<strong>3.5人</strong>（天工1.0+Skymusic0.5+任你购2.0）。</div></div>
 <!-- 二 -->
-<div class="section-title">💰 二、H2费用转化目标看板</div>
+<div class="section-title">🚀 二、上线转化量级 · Skywork已上线业务</div>
+<div class="info-card" style="background:#f0fdf4;border-color:#bbf7d0"><span style="font-size:24px">📈</span><div class="text"><strong>上线转化与测试验证分开统计：</strong>以下为线上导出数据中的实际任务量，不纳入第三部分测试样本总量。当前已确认上线的5项业务中，文本输入、文本输出已有<strong>2026-08-18至2026-08-24</strong>线上数据；昵称、图片输入、图片输出尚未在当前目录发现对应上线导出文件，暂不填零，待补数据后更新。</div></div>
+<div class="online-grid">
+<div class="online-card ready"><div class="on">Skywork · 文本输入</div><div class="ov">15,749</div><div class="os">线上任务量（8/18~8/24）<br>通过 14,647 · 不通过 1,102</div></div>
+<div class="online-card ready"><div class="on">Skywork · 文本输出</div><div class="ov">5,759</div><div class="os">线上任务量（8/18~8/24）<br>通过 5,144 · 不通过 615</div></div>
+<div class="online-card pending"><div class="on">Skywork · 昵称</div><div class="ov">待补数据</div><div class="os">需要对应线上导出文件<br>暂不计入上线总量</div></div>
+<div class="online-card pending"><div class="on">Skywork · 图片输入</div><div class="ov">待补数据</div><div class="os">需要对应线上导出文件<br>暂不计入上线总量</div></div>
+<div class="online-card pending"><div class="on">Skywork · 图片输出</div><div class="ov">待补数据</div><div class="os">需要对应线上导出文件<br>暂不计入上线总量</div></div>
+</div>
+<div class="tw"><table><thead><tr><th>维度</th><th>线上业务</th><th>统计周期</th><th>上线量级</th><th>通过</th><th>不通过</th><th>上线数据状态</th></tr></thead><tbody>
+<tr><td><span class="dual-label dual-online">上线转化</span></td><td style="text-align:left">Skywork-新业务-文本输入</td><td>8/18~8/24</td><td><strong>15,749</strong></td><td style="color:#059669">14,647</td><td style="color:#dc2626">1,102</td><td><span class="tag tag-g">已接入</span></td></tr>
+<tr><td><span class="dual-label dual-online">上线转化</span></td><td style="text-align:left">Skywork-新业务-文本输出</td><td>8/18~8/24</td><td><strong>5,759</strong></td><td style="color:#059669">5,144</td><td style="color:#dc2626">615</td><td><span class="tag tag-g">已接入</span></td></tr>
+<tr style="color:#94a3b8"><td><span class="dual-label dual-online">上线转化</span></td><td style="text-align:left">Skywork-新业务-昵称</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+<tr style="color:#94a3b8"><td><span class="dual-label dual-online">上线转化</span></td><td style="text-align:left">Skywork-新业务-图片输入</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+<tr style="color:#94a3b8"><td><span class="dual-label dual-online">上线转化</span></td><td style="text-align:left">Skywork-新业务-图片输出</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+</tbody><tfoot><tr><td colspan="3">已接入业务小计</td><td><strong style="color:#059669">21,508</strong></td><td style="color:#059669">19,791</td><td style="color:#dc2626">1,717</td><td>2 / 5项</td></tr></tfoot></table></div>
+<div class="online-note">当前已确认上线量级：<strong>21,508条</strong>，仅包含文本输入和文本输出两个已取得线上导出数据的业务。要补齐其余3项，至少需要每项提供：线上导出明细、统计起止日期、TaskId（用于去重）、最终审核结果/命中类型，以及对应策略版本或上线日期。</div>
+<!-- 三 -->
+<div class="section-title">💰 三、H2费用转化目标看板</div>
 <div class="card">
 <h4 style="margin-bottom:14px;font-size:15px;color:#0f172a">
 H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
@@ -175,8 +201,8 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 </div>
 </div>
 </div>
-<!-- 三 -->
-<div class="section-title">🔍 三、本周第6周 · 测试详情（8/3 ~ 8/13）</div>
+<!-- 四 -->
+<div class="section-title">🧪 四、测试验证详情（8/3 ~ 8/13）</div>
 <div class="info-card" style="margin-bottom:12px;background:#eff6ff;border-color:#bfdbfe"><span style="font-size:24px">🧪</span><div class="text"><strong>本周最新版本验证全景</strong><br><span style="font-size:13px;color:#64748b">按每个业务截至8/13的最新版本统计，失败剔除准确率分母并单独报告；9项共7,919条，有效7,264条。</span></div></div>
 <div class="ig">
 <div class="ic"><div class="il">最新验证总量</div><div class="iv bl">7,919</div><div class="is">9项业务最新版本</div></div>
@@ -204,8 +230,8 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <div class="sc"><div class="st">✅ 本周判断</div><div class="sv">当前业务清单除任你购尚未启动外，其余13项均已达标并进入优化期；后续以回归监控和链路稳定性为主。</div></div>
 </div>
 
-<!-- 四 洞察 -->
-<div class="section-title">⚡ 四、本周测试总结 · 按业务</div>
+<!-- 五 洞察 -->
+<div class="section-title">⚡ 五、测试验证总结 · 按业务</div>
 <div class="card">
 <div class="ms-card"><div class="msh" style="color:#2563eb">📝 Skywork · 文本输入 V10（已达标）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.73%、覆盖率99.47%，边界黑样本拦截率95.96%；生产错杀2条、漏放1条、失败3条，边界漏放4条。<br><strong>局限：</strong>残余问题集中在涉政组合语义、历史敏感内容与普通政策说明的边界，单句关键词规则难以稳定区分真实攻击、客观讨论和正向材料。<br><strong>困难：</strong>既要保持生产白样本高覆盖，又要提升边界黑样本召回，规则收紧容易增加正常内容误拦，放宽又会造成组合风险漏放。<br><strong>建议：</strong>保持V10主策略不大改，将生产及边界残余错题纳入固定回归集；对失败样本自动重试，并持续监控涉政组合语义的漏放率。</div></div>
 <div class="ms-card"><div class="msh" style="color:#2563eb">📤 Skywork · 文本输出（生产V12 / 边界V8，已达标）</div><div class="msv"><strong>结果：</strong>生产有效准确率99.64%、覆盖率99.91%，边界准确率96.04%；生产和边界各残留错杀1条、漏放3条，生产失败1条。<br><strong>局限：</strong>生产集偏向稳定放行，边界集强调高风险召回，隐晦表达、元信息描述和跨段风险组合仍可能出现判断波动。<br><strong>困难：</strong>两套样本目标天然拉扯，继续堆叠规则可能破坏已经达标的判白能力，也可能把上游任务描述中的风险词误当作实际违规正文。<br><strong>建议：</strong>保留V12/V8作为当前达标版本，不再大幅改写Prompt；分生产、边界维护回归集，对失败链路和上线后漏放率单独监控。</div></div>
