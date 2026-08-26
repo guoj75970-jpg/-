@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="CMA测试验证与上线转化双视图看板">
 <title>CMA转化进展 H2总览</title>
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#1e293b;line-height:1.6}
 .header{background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);padding:28px 40px 36px;color:#fff}
@@ -71,25 +73,53 @@ tfoot td{padding:10px 14px;text-align:center;border-top:2px solid #e2e8f0;backgr
 .ms-card .msv{font-size:13px;color:#64748b;line-height:1.6}
 .plan-prio{display:inline-block;width:36px;height:24px;border-radius:4px;color:#fff;font-size:12px;font-weight:700;line-height:24px;text-align:center}
 
-.view-switch-wrap{max-width:1400px;margin:18px auto 0;padding:0 24px}
-.view-switch{display:inline-flex;background:#e2e8f0;border-radius:10px;padding:4px;gap:4px}
-.view-switch a{min-width:138px;padding:9px 18px;border-radius:7px;text-decoration:none;text-align:center;font-size:14px;font-weight:700;color:#64748b;transition:background .18s,color .18s,transform .18s}
-.view-switch a:hover{color:#0f172a;transform:translateY(-1px)}
-.view-switch a.active{background:#fff;color:#1d4ed8;box-shadow:0 1px 4px rgba(15,23,42,.12)}
 .footer{text-align:center;margin-top:50px;padding:24px 0;font-size:13px;color:#94a3b8;border-top:1px solid #e2e8f0}
 @media(max-width:1200px){.side,.strategy-grid{grid-template-columns:1fr}.ig{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:768px){.strategy-grid,.ig{grid-template-columns:repeat(2,1fr)}.side{grid-template-columns:1fr}}
+
+.online-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}
+.online-kpi{background:#fff;border:1px solid #e8ecf1;border-top:4px solid #059669;border-radius:12px;padding:18px 16px;min-height:145px}
+.online-kpi.pending{border-top-color:#cbd5e1;background:#f8fafc}
+.online-kpi .name{font-size:13px;font-weight:700;color:#0f172a;min-height:40px}
+.online-kpi .value{font-size:28px;font-weight:800;color:#059669;margin-top:8px}
+.online-kpi.pending .value{font-size:19px;color:#94a3b8;margin-top:18px}
+.online-kpi .meta{font-size:11px;color:#64748b;margin-top:5px;line-height:1.55}
+.metric-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}
+.metric{background:#fff;border:1px solid #e8ecf1;border-radius:12px;padding:20px;text-align:center}
+.metric .label{font-size:12px;color:#64748b}.metric .num{font-size:30px;font-weight:800;color:#0f172a;margin:4px 0}.metric .note{font-size:11px;color:#94a3b8}
+.bar-line{display:grid;grid-template-columns:170px 1fr 88px;align-items:center;gap:14px;margin:14px 0;font-size:13px}
+.bar-track{height:12px;background:#f1f5f9;border-radius:6px;overflow:hidden}.bar-fill{height:100%;border-radius:6px;background:#059669}.bar-fill.red{background:#dc2626}
+.status-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}.status-panel{background:#fff;border:1px solid #e8ecf1;border-radius:12px;padding:22px}
+.status-item{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #f1f5f9;font-size:13px}.status-item:last-child{border-bottom:0}
+@media(max-width:1200px){.online-kpis{grid-template-columns:repeat(3,1fr)}.metric-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.online-kpis,.metric-strip,.status-list{grid-template-columns:1fr}.bar-line{grid-template-columns:1fr}.view-switch{display:flex}.view-switch a{min-width:0;flex:1}}
+
+
+.dashboard-view[hidden]{display:none}
+.header-content{gap:24px}
+.header-switch{display:inline-flex;align-self:center;background:rgba(15,23,42,.22);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:4px;gap:4px;flex-shrink:0}
+.view-tab{min-width:122px;min-height:44px;padding:9px 18px;border:0;border-radius:7px;background:transparent;text-align:center;font:inherit;font-size:14px;font-weight:700;color:rgba(255,255,255,.78);cursor:pointer;transition:background .18s,color .18s,transform .18s}
+.view-tab:hover{color:#fff;background:rgba(255,255,255,.10);transform:translateY(-1px)}
+.view-tab:active{transform:scale(.98)}
+.view-tab:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
+.view-tab.active{background:#fff;color:#1d4ed8;box-shadow:0 1px 4px rgba(15,23,42,.20)}
+.view-tab.active:hover{background:#fff;color:#1d4ed8}
+@media(max-width:900px){.header-content{align-items:flex-start;flex-wrap:wrap}.header-switch{order:3;width:100%}.view-tab{flex:1}.header-right{margin-left:auto}}
+@media(max-width:560px){.header{padding:22px 18px 30px}.header-content{display:grid;grid-template-columns:1fr}.header-right{text-align:left;margin-left:0}.header-switch{order:0}.banner-wrap,.container{padding-left:14px;padding-right:14px}.ig{grid-template-columns:1fr}.view-tab{min-width:0}}
+@media(prefers-reduced-motion:reduce){.view-tab{transition:none}}
+
 </style>
 </head>
 <body>
+<section class="dashboard-view active" data-dashboard-view="test" aria-hidden="false">
 <div class="header"><div class="header-content">
 <div class="header-left"><h1>CMA转化进展 · H2总览</h1><div class="subtitle">天工 · Skymusic · 任你购 — 策略测试验证全景</div></div>
+<nav class="view-switch header-switch" aria-label="CMA看板视图切换">
+<button type="button" class="view-tab active" data-view="test" aria-current="page">测试验证</button>
+<button type="button" class="view-tab" data-view="online">上线转化</button>
+</nav>
 <div class="header-right"><div>测试验证周期：8/3（周一）~ 8/13（周四）</div><div>更新：2026-08-25 · 测试数据截至8/13</div></div>
 </div></div>
-<div class="view-switch-wrap"><nav class="view-switch" aria-label="CMA看板视图切换">
-<a class="active" href="skywork_cma_weekly.html" aria-current="page">测试验证</a>
-<a href="skywork_cma_online.html">上线转化</a>
-</nav></div>
 <div class="banner-wrap"><div class="banner-inner">
 <span style="font-size:24px">🎯</span>
 <span><strong>本周核心结论：</strong>业务清单已收敛为14项，除任你购尚未启动外，其余<strong>13项均已达到当前业务验收要求 🟢</strong>。本周9项最新验证共7,919条、有效7,264条，整体有效准确率<strong>99.24%</strong>；Skymusic国内歌曲评论V2提升至99.07%，国内Prompt V3、国外昵称V2及图片类业务均转入优化期。任你购保留启动期，待首轮策略验证。</span>
@@ -237,5 +267,109 @@ H2总目标：106,000元 · 月目标20,000元 · 缩减1人≈6,100元/月
 <div class="footer">
 网易易盾 · 人工审核 · CMA转化进展 H2总览 · 小E 🤖 自动生成
 </div>
+</section>
+<section class="dashboard-view" data-dashboard-view="online" aria-hidden="true" hidden>
+<div class="header"><div class="header-content">
+<div class="header-left"><h1>CMA转化进展 · 上线转化</h1><div class="subtitle">Skywork已上线业务 · 线上真实任务量级与数据接入状态</div></div>
+<nav class="view-switch header-switch" aria-label="CMA看板视图切换">
+<button type="button" class="view-tab" data-view="test">测试验证</button>
+<button type="button" class="view-tab active" data-view="online" aria-current="page">上线转化</button>
+</nav>
+<div class="header-right"><div>统计周期：2026-08-18 ~ 2026-08-24</div><div>更新：2026-08-25 · 数据截至8/24</div></div>
+</div></div>
+<div class="banner-wrap"><div class="banner-inner">
+<span style="font-size:24px">📈</span><span><strong>上线转化结论：</strong>Skywork已有5项业务上线，当前已接入文本输入、文本输出两项线上导出数据，共<strong>21,508条</strong>。昵称、图片输入、图片输出已确认上线但尚缺对应线上导出，暂不填零、不计入合计。</span>
+</div></div>
+<main class="container">
+<div class="section-title">📊 一、上线量级总览</div>
+<div class="metric-strip">
+<div class="metric"><div class="label">确认上线业务</div><div class="num">5项</div><div class="note">Skywork五类审核业务</div></div>
+<div class="metric"><div class="label">已接入数据业务</div><div class="num" style="color:#2563eb">2项</div><div class="note">文本输入、文本输出</div></div>
+<div class="metric"><div class="label">已确认上线量级</div><div class="num" style="color:#059669">21,508</div><div class="note">仅统计已取得导出的真实任务</div></div>
+<div class="metric"><div class="label">待补数据业务</div><div class="num" style="color:#d97706">3项</div><div class="note">昵称、图片输入、图片输出</div></div>
+</div>
+<div class="online-kpis">
+<div class="online-kpi"><div class="name">Skywork · 文本输入</div><div class="value">15,749</div><div class="meta">8/18~8/24线上任务量<br>通过14,647 · 不通过1,102</div></div>
+<div class="online-kpi"><div class="name">Skywork · 文本输出</div><div class="value">5,759</div><div class="meta">8/18~8/24线上任务量<br>通过5,144 · 不通过615</div></div>
+<div class="online-kpi pending"><div class="name">Skywork · 昵称</div><div class="value">待补数据</div><div class="meta">已上线，尚未取得线上导出</div></div>
+<div class="online-kpi pending"><div class="name">Skywork · 图片输入</div><div class="value">待补数据</div><div class="meta">已上线，尚未取得线上导出</div></div>
+<div class="online-kpi pending"><div class="name">Skywork · 图片输出</div><div class="value">待补数据</div><div class="meta">已上线，尚未取得线上导出</div></div>
+</div>
+
+<div class="section-title">🧾 二、上线业务明细</div>
+<div class="tw"><table><thead><tr><th>上线业务</th><th>数据类型</th><th>统计周期</th><th>上线量级</th><th>通过</th><th>不通过</th><th>数据状态</th></tr></thead><tbody>
+<tr><td style="text-align:left">Skywork-新业务-文本输入</td><td>文本</td><td>8/18~8/24</td><td><strong>15,749</strong></td><td style="color:#059669">14,647</td><td style="color:#dc2626">1,102</td><td><span class="tag tag-g">已接入</span></td></tr>
+<tr><td style="text-align:left">Skywork-新业务-文本输出</td><td>文本</td><td>8/18~8/24</td><td><strong>5,759</strong></td><td style="color:#059669">5,144</td><td style="color:#dc2626">615</td><td><span class="tag tag-g">已接入</span></td></tr>
+<tr style="color:#94a3b8"><td style="text-align:left">Skywork-新业务-昵称</td><td>文本</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+<tr style="color:#94a3b8"><td style="text-align:left">Skywork-新业务-图片输入</td><td>图片</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+<tr style="color:#94a3b8"><td style="text-align:left">Skywork-新业务-图片输出</td><td>图片</td><td>待补</td><td>—</td><td>—</td><td>—</td><td><span class="tag tag-g2">待补数据</span></td></tr>
+</tbody><tfoot><tr><td colspan="3">已接入业务合计</td><td><strong style="color:#059669">21,508</strong></td><td style="color:#059669">19,791</td><td style="color:#dc2626">1,717</td><td>2 / 5项</td></tr></tfoot></table></div>
+
+<div class="section-title">📉 三、线上结果分布</div>
+<div class="side">
+<div class="card"><h4 style="margin-bottom:16px">文本输入 · 15,749条</h4>
+<div class="bar-line"><span>通过 14,647</span><div class="bar-track"><div class="bar-fill" style="width:93.00%"></div></div><strong>93.00%</strong></div>
+<div class="bar-line"><span>不通过 1,102</span><div class="bar-track"><div class="bar-fill red" style="width:7.00%"></div></div><strong>7.00%</strong></div></div>
+<div class="card"><h4 style="margin-bottom:16px">文本输出 · 5,759条</h4>
+<div class="bar-line"><span>通过 5,144</span><div class="bar-track"><div class="bar-fill" style="width:89.32%"></div></div><strong>89.32%</strong></div>
+<div class="bar-line"><span>不通过 615</span><div class="bar-track"><div class="bar-fill red" style="width:10.68%"></div></div><strong>10.68%</strong></div></div>
+</div>
+<div class="warn-card"><span style="font-size:22px">⚠️</span><div class="text"><strong>口径提醒：</strong>这里的通过/不通过是线上最终结果分布，不等同于测试验证准确率，也不能直接用于判断策略正确与否。上线质量需要结合抽检或人审对照数据另行计算。</div></div>
+
+<div class="section-title">🔌 四、数据接入与后续补充</div>
+<div class="status-list">
+<div class="status-panel"><h4 style="margin-bottom:8px">已接入数据</h4>
+<div class="status-item"><span>文本输入</span><strong style="color:#059669">15,749条</strong></div>
+<div class="status-item"><span>文本输出</span><strong style="color:#059669">5,759条</strong></div>
+<div class="status-item"><span>TaskId去重检查</span><strong style="color:#059669">无重复</strong></div>
+<div class="status-item"><span>数据周期</span><strong>8/18~8/24</strong></div></div>
+<div class="status-panel"><h4 style="margin-bottom:8px">待补数据</h4>
+<div class="status-item"><span>昵称线上导出</span><strong style="color:#d97706">待提供</strong></div>
+<div class="status-item"><span>图片输入线上导出</span><strong style="color:#d97706">待提供</strong></div>
+<div class="status-item"><span>图片输出线上导出</span><strong style="color:#d97706">待提供</strong></div>
+<div class="status-item"><span>建议字段</span><strong>TaskId、日期、结果、命中类型、版本</strong></div></div>
+</div>
+<div class="info-card" style="margin-top:18px"><span style="font-size:22px">💡</span><div class="text"><strong>后续更新方式：</strong>每周将5项业务的线上导出文件放入天工上线质量目录，即可继续补充周量级、累计量级、日趋势、结果分布和数据接入完整度。</div></div>
+</main>
+<div class="footer">网易易盾 · 人工审核 · CMA上线转化量级看板 · 小E自动生成</div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  const views = Array.from(document.querySelectorAll('.dashboard-view'));
+  const tabs = Array.from(document.querySelectorAll('.view-tab'));
+  const titles = {
+    test: 'CMA转化进展 H2总览',
+    online: 'CMA上线转化量级看板'
+  };
+
+  function showView(viewName, shouldScroll){
+    if (viewName !== 'test' && viewName !== 'online') return;
+    views.forEach(function(view){
+      const isActive = view.dataset.dashboardView === viewName;
+      view.hidden = !isActive;
+      view.classList.toggle('active', isActive);
+      view.setAttribute('aria-hidden', String(!isActive));
+    });
+    tabs.forEach(function(tab){
+      const isActive = tab.dataset.view === viewName;
+      tab.classList.toggle('active', isActive);
+      if (isActive) tab.setAttribute('aria-current', 'page');
+      else tab.removeAttribute('aria-current');
+    });
+    document.title = titles[viewName];
+    if (shouldScroll) window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      showView(tab.dataset.view, true);
+    });
+  });
+  showView('test', false);
+}());
+</script>
+
 </body>
 </html>
