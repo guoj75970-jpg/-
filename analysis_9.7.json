@@ -1,0 +1,147 @@
+{
+  "day": "9.7",
+  "metrics": {
+    "actual": 2943,
+    "trans": 2582,
+    "passed": 2221,
+    "risk": 590,
+    "bad": 132,
+    "viol": 4.49,
+    "queue": 0.43,
+    "queue_n": 2816,
+    "queue_sum": 1215.9166666666665,
+    "mult": 1.67,
+    "people": 12,
+    "percap": 215
+  },
+  "persons": [
+    {
+      "name": "罗仪德",
+      "audit": 441,
+      "trans": 390,
+      "passed": 362,
+      "bad": 15,
+      "viol": 3.4,
+      "queue": 0.63,
+      "mult": 1.06
+    },
+    {
+      "name": "刘定乐",
+      "audit": 366,
+      "trans": 326,
+      "passed": 283,
+      "bad": 17,
+      "viol": 4.64,
+      "queue": 0.69,
+      "mult": 1.2
+    },
+    {
+      "name": "曾坚城",
+      "audit": 336,
+      "trans": 287,
+      "passed": 267,
+      "bad": 17,
+      "viol": 5.06,
+      "queue": 0.07,
+      "mult": 1.05
+    },
+    {
+      "name": "梁昊永",
+      "audit": 307,
+      "trans": 277,
+      "passed": 253,
+      "bad": 13,
+      "viol": 4.23,
+      "queue": 1.14,
+      "mult": 1.74
+    },
+    {
+      "name": "梁昊恒",
+      "audit": 302,
+      "trans": 277,
+      "passed": 240,
+      "bad": 14,
+      "viol": 4.64,
+      "queue": 0.59,
+      "mult": 1.93
+    },
+    {
+      "name": "黄金宝",
+      "audit": 276,
+      "trans": 254,
+      "passed": 145,
+      "bad": 12,
+      "viol": 4.35,
+      "queue": 0.54,
+      "mult": 1.22
+    },
+    {
+      "name": "李明朗",
+      "audit": 260,
+      "trans": 212,
+      "passed": 198,
+      "bad": 15,
+      "viol": 5.77,
+      "queue": 0.01,
+      "mult": 2.08
+    },
+    {
+      "name": "呙怡帆",
+      "audit": 231,
+      "trans": 191,
+      "passed": 168,
+      "bad": 8,
+      "viol": 3.46,
+      "queue": 0.01,
+      "mult": 2.5
+    },
+    {
+      "name": "吴泽锋",
+      "audit": 165,
+      "trans": 140,
+      "passed": 131,
+      "bad": 9,
+      "viol": 5.45,
+      "queue": 0.02,
+      "mult": 2.85
+    },
+    {
+      "name": "叶健焯",
+      "audit": 159,
+      "trans": 134,
+      "passed": 100,
+      "bad": 7,
+      "viol": 4.4,
+      "queue": 0.05,
+      "mult": 3.03
+    },
+    {
+      "name": "杨国铭",
+      "audit": 55,
+      "trans": 47,
+      "passed": 40,
+      "bad": 2,
+      "viol": 3.64,
+      "queue": 0.44,
+      "mult": 0.86
+    },
+    {
+      "name": "杨文杰",
+      "audit": 45,
+      "trans": 40,
+      "passed": 34,
+      "bad": 3,
+      "viol": 6.67,
+      "queue": 0.02,
+      "mult": 1.92
+    }
+  ],
+  "apps": {
+    "虎牙视频": 2837,
+    "虎牙AI礼物特效视频": 102,
+    "虎牙直播回放切片视频": 4
+  },
+  "other_apps": {},
+  "queue_excluded_records": 109,
+  "report": "C:\\Users\\guojing17\\.easyclaw\\workspace\\虎牙数据看板\\虎牙视频审核日报-2026-09-07.txt"
+}
