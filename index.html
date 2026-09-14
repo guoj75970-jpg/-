@@ -243,8 +243,8 @@
                 <div class="subtitle">Huya Video Review Daily Report</div>
             </div>
             <div class="header-right">
-                <div>数据周期: 2026-09-01 至 2026-09-10</div>
-                <div>报告生成: 2026-09-11 10:00:00</div>
+                <div>数据周期: 2026-09-01 至 2026-09-13</div>
+                <div>报告生成: 2026-09-14 11:30:00</div>
             </div>
         </div>
     </div>
@@ -255,18 +255,18 @@
         <div class="metrics-grid">
             <div class="metric-card blue">
                 <div class="label">累计实际审核量</div>
-                <div class="value blue">32,011 <span class="unit">条</span></div>
-                <div class="trend up"><span>↑</span> 9月累计10天</div>
+                <div class="value blue">41,199 <span class="unit">条</span></div>
+                <div class="trend up"><span>↑</span> 9月累计13天</div>
             </div>
             <div class="metric-card green">
                 <div class="label">累计转化后审核量</div>
-                <div class="value green">27,559 <span class="unit">条</span></div>
-            <div class="trend up"><span>↑</span> 9月累计10天</div>
+                <div class="value green">35,478 <span class="unit">条</span></div>
+            <div class="trend up"><span>↑</span> 9月累计13天</div>
             </div>
             <div class="metric-card purple">
                 <div class="label">日均人效(转化后)</div>
-                <div class="value purple">183 <span class="unit">条/人</span></div>
-                <div class="trend up"><span>↑</span> 9月在班总人力150人</div>
+                <div class="value purple">184 <span class="unit">条/人</span></div>
+                <div class="trend up"><span>↑</span> 9月在班总人力192人</div>
             </div>
             <div class="metric-card orange">
                 <div class="label">平均违规率</div>
@@ -275,7 +275,7 @@
             </div>
             <div class="metric-card red">
                 <div class="label">平均排队时长</div>
-                <div class="value red">0.83 <span class="unit">分钟</span></div>
+                <div class="value red">0.84 <span class="unit">分钟</span></div>
                 <div class="trend down"><span>↓</span> 低于目标 2分钟</div>
             </div>
         </div>
@@ -405,26 +405,26 @@
 
     <script>
         // 数据
-        const dates = ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10"];
+        const dates = ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10","9.11","9.12","9.13"];
 
         // 6月 + 8月真实数据
-        const auditVolumes = [3281,3291,3084,3192,3104,3193,2943,3399,3266,3258];
-        const transformedVolumes = [2748,2851,2650,2721,2667,2766,2582,2978,2803,2793];
-        const queueTimes = [1.86,1.51,0.62,1.23,1.82,0.17,0.43,0.45,0.3,0.45];
+        const auditVolumes = [3281,3291,3084,3192,3104,3193,2943,3399,3266,3258,2802,2911,3475];
+        const transformedVolumes = [2748,2851,2650,2721,2667,2766,2582,2978,2803,2793,2434,2511,2974];
+        const queueTimes = [1.86,1.51,0.62,1.23,1.82,0.17,0.43,0.45,0.3,0.45,0.29,2.11,0.36];
 
-        // 9月人员排行(9.1-9.10日均转化)
-        const personNames = ["曾坚城","罗仪德","刘定乐","李明朗","罗丹","吴桂耀","江宜瑾","呙怡帆","黄金宝","梁昊恒","梁昊永","王鸣"];
-        const personValues = [306.6,289.6,275.0,234.1,227.5,227.1,221.0,203.9,187.3,183.0,181.7,181.4];
+        // 9月人员排行(9.1-9.13日均转化)
+        const personNames = ["曾坚城","罗仪德","刘定乐","吴桂耀","李明朗","罗丹","江宜瑾","呙怡帆","黄金宝","梁昊恒","梁昊永","罗志洋"];
+        const personValues = [302.3,298.8,250.0,243.5,239.1,235.8,212.0,203.4,197.0,194.8,192.3,183.5];
 
-        // 9月24小时时段数据（9.1-9.10累计）
-        const hourlyData = [2019,1509,763,759,577,456,439,429,766,800,872,1393,1266,919,1723,1756,1945,1833,1505,1602,1995,2168,2325,2192];
+        // 9月24小时时段数据（9.1-9.13累计）
+        const hourlyData = [2490,1851,965,977,787,614,600,549,1013,1085,1149,1769,1559,1291,2304,2434,2505,2338,1851,2070,2538,2833,2895,2732];
 
         // 8月友商对比数据
-        const julyLabels = ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10"];
-        const yidunVolumes = [3281,3291,3084,3192,3104,3193,2943,3399,3266,3258];
-        const zhengtongVolumes = [15426,15555,14797,15362,13706,11993,12222,11118,10734,11323];
-        const yidunQueueTimes = [1.86,1.51,0.62,1.23,1.82,0.17,0.43,0.45,0.3,0.45];
-        const zhengtongQueueTimes = [1.35,1.76,1.14,2.61,2.25,0.34,0.74,0.41,0.87,0.58];
+        const julyLabels = ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10","9.11","9.12","9.13"];
+        const yidunVolumes = [3281,3291,3084,3192,3104,3193,2943,3399,3266,3258,2802,2911,3475];
+        const zhengtongVolumes = [15426,15555,14797,15362,13706,11993,12222,11118,10734,11323,11194,11936,10623];
+        const yidunQueueTimes = [1.86,1.51,0.62,1.23,1.82,0.17,0.43,0.45,0.3,0.45,0.29,2.11,0.36];
+        const zhengtongQueueTimes = [1.35,1.76,1.14,2.61,2.25,0.34,0.74,0.41,0.87,0.58,0.41,2.21,0.43];
 
         // Chart.js 全局配置
         Chart.defaults.color = '#6b7280';
@@ -745,10 +745,10 @@
         new Chart(document.getElementById('violationRateChart'), {
             type: 'line',
             data: {
-                labels: ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10"],
+                labels: ["9.1","9.2","9.3","9.4","9.5","9.6","9.7","9.8","9.9","9.10","9.11","9.12","9.13"],
                 datasets: [{
                     label: '每日违规率',
-                    data: [5.21,5.41,4.57,4.17,3.87,4.32,4.49,4.3,4.59,4.88],
+                    data: [5.21,5.41,4.57,4.17,3.87,4.32,4.49,4.3,4.59,4.88,4.53,5.02,4.29],
                     borderColor: '#ef4444',
                     backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderWidth: 2,
@@ -793,7 +793,7 @@
             data: {
                 labels: ["虎牙视频","虎牙直播回放切片视频","虎牙AI礼物特效视频"],
                 datasets: [{
-                    data: [31351,28,632],
+                    data: [40102,33,1064],
                     backgroundColor: [
                         'rgba(139, 92, 246, 0.8)',
                         'rgba(16, 185, 129, 0.8)',
